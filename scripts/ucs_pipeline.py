@@ -93,7 +93,12 @@ def apply_avoid_replacements(text: str, glossary: list[dict[str, str]]) -> str:
         avoid = row.get("avoid_tw", "").strip()
         if not preferred or not avoid:
             continue
-        for bad in [item.strip() for item in avoid.split(";") if item.strip()]:
+        avoid_terms = sorted(
+            [item.strip() for item in avoid.split(";") if item.strip()],
+            key=len,
+            reverse=True,
+        )
+        for bad in avoid_terms:
             # Avoid automatic substring expansion such as 泰倫蟲族 -> 泰倫蟲族蟲族.
             # These still appear in term-report for human review.
             if bad == preferred or bad in preferred:
