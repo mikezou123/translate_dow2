@@ -3,28 +3,61 @@ from __future__ import annotations
 
 import argparse
 import csv
+import os
 import re
 from collections import OrderedDict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROCESS_ROOT = ROOT.parent
 
-GAMES = {
+GAME_DEFS = {
     "dow2": {
         "name": "Dawn of War 2",
-        "en": PROCESS_ROOT / "Dawn of War 2" / "Locale" / "English" / "DOW2.ucs",
-        "zh": PROCESS_ROOT / "Dawn of War 2" / "Locale" / "TChinese" / "DOW2.ucs",
+        "root": Path("Dawn of War 2"),
     },
     "retribution": {
         "name": "Dawn of War II - Retribution",
-        "en": PROCESS_ROOT / "Dawn of War II - Retribution" / "Locale" / "English" / "DOW2.ucs",
-        "zh": PROCESS_ROOT / "Dawn of War II - Retribution" / "Locale" / "TChinese" / "DOW2.ucs",
+        "root": Path("Dawn of War II - Retribution"),
     },
 }
 
 ID_LINE = re.compile(r"^(\d+)\t(.*)$")
 ASCII_WORD = re.compile(r"[A-Za-z]{3,}")
+
+
+def resolve_path(value: str | Path) -> Path:
+    return Path(value).expanduser().resolve()
+
+
+def project_root(args: argparse.Namespace) -> Path:
+    if args.project_root:
+        return resolve_path(args.project_root)
+    return resolve_path(args.process_root) / "translation_project"
+
+
+def glossary_path(args: argparse.Namespace) -> Path:
+    if args.glossary:
+        return resolve_path(args.glossary)
+    return ROOT / "glossary" / "mainland_40k_tw.tsv"
+
+
+def overrides_path(args: argparse.Namespace) -> Path:
+    if args.overrides:
+        return resolve_path(args.overrides)
+    return project_root(args) / "work" / "manual_overrides.tsv"
+
+
+def games(args: argparse.Namespace) -> dict[str, dict[str, Path | str]]:
+    process_root = resolve_path(args.process_root)
+    result: dict[str, dict[str, Path | str]] = {}
+    for key, meta in GAME_DEFS.items():
+        game_root = process_root / meta["root"]
+        result[key] = {
+            "name": meta["name"],
+            "en": game_root / "Locale" / "English" / "DOW2.ucs",
+            "zh": game_root / "Locale" / "TChinese" / "DOW2.ucs",
+        }
+    return result
 
 
 def read_ucs(path: Path) -> OrderedDict[str, str]:
@@ -61,6 +94,10 @@ def apply_avoid_replacements(text: str, glossary: list[dict[str, str]]) -> str:
         if not preferred or not avoid:
             continue
         for bad in [item.strip() for item in avoid.split(";") if item.strip()]:
+            # Avoid automatic substring expansion such as 泰倫蟲族 -> 泰倫蟲族蟲族.
+            # These still appear in term-report for human review.
+            if bad == preferred or bad in preferred:
+                continue
             result = result.replace(bad, preferred)
     return result
 
@@ -77,7 +114,7 @@ def classify(en_text: str, zh_text: str | None) -> str:
 
 def cmd_report(args: argparse.Namespace) -> None:
     rows = []
-    for key, meta in GAMES.items():
+    for key, meta in games(args).items():
         en = read_ucs(meta["en"])
         zh = read_ucs(meta["zh"])
         missing = [item for item in en if item not in zh]
@@ -96,7 +133,7 @@ def cmd_report(args: argparse.Namespace) -> None:
             "first_missing_ids": ", ".join(missing[:20]),
         })
 
-    out = ROOT / "reports" / "coverage.tsv"
+    out = project_root(args) / "reports" / "coverage.tsv"
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()), delimiter="\t")
@@ -106,13 +143,14 @@ def cmd_report(args: argparse.Namespace) -> None:
 
 
 def cmd_export(args: argparse.Namespace) -> None:
-    glossary = read_glossary(ROOT / "glossary" / "mainland_40k_tw.tsv")
-    targets = GAMES.keys() if args.game == "all" else [args.game]
+    glossary = read_glossary(glossary_path(args))
+    all_games = games(args)
+    targets = all_games.keys() if args.game == "all" else [args.game]
     for key in targets:
-        meta = GAMES[key]
+        meta = all_games[key]
         en = read_ucs(meta["en"])
         zh = read_ucs(meta["zh"])
-        out = ROOT / "work" / f"{key}_translation.tsv"
+        out = project_root(args) / "work" / f"{key}_translation.tsv"
         out.parent.mkdir(parents=True, exist_ok=True)
         with out.open("w", encoding="utf-8-sig", newline="") as handle:
             fields = ["id", "status", "en", "zh_current", "zh_new", "notes"]
@@ -133,12 +171,22 @@ def cmd_export(args: argparse.Namespace) -> None:
 
 
 def cmd_build(args: argparse.Namespace) -> None:
-    targets = GAMES.keys() if args.game == "all" else [args.game]
+    all_games = games(args)
+    targets = all_games.keys() if args.game == "all" else [args.game]
+    manual_overrides: dict[tuple[str, str], str] = {}
+    manual_path = overrides_path(args)
+    if manual_path.exists():
+        with manual_path.open("r", encoding="utf-8-sig", newline="") as handle:
+            for row in csv.DictReader(handle, delimiter="\t"):
+                value = row.get("zh_new", "")
+                if value:
+                    manual_overrides[(row["game_key"], row["id"])] = value
+
     for key in targets:
-        meta = GAMES[key]
+        meta = all_games[key]
         en = read_ucs(meta["en"])
         zh = read_ucs(meta["zh"])
-        work = ROOT / "work" / f"{key}_translation.tsv"
+        work = project_root(args) / "work" / f"{key}_translation.tsv"
         overrides: dict[str, str] = {}
         if work.exists():
             with work.open("r", encoding="utf-8-sig", newline="") as handle:
@@ -149,7 +197,11 @@ def cmd_build(args: argparse.Namespace) -> None:
 
         output = OrderedDict()
         for text_id, en_text in en.items():
-            if text_id in overrides:
+            if (key, text_id) in manual_overrides:
+                output[text_id] = manual_overrides[(key, text_id)]
+            elif ("all", text_id) in manual_overrides:
+                output[text_id] = manual_overrides[("all", text_id)]
+            elif text_id in overrides:
                 output[text_id] = overrides[text_id]
             elif text_id in zh:
                 output[text_id] = zh[text_id]
@@ -158,15 +210,15 @@ def cmd_build(args: argparse.Namespace) -> None:
             else:
                 output[text_id] = ""
 
-        out = ROOT / "output" / key / "Locale" / "TChinese" / "DOW2.ucs"
+        out = project_root(args) / "output" / key / "Locale" / "TChinese" / "DOW2.ucs"
         write_ucs(out, output)
         print(out)
 
 
 def cmd_term_report(args: argparse.Namespace) -> None:
-    glossary = read_glossary(ROOT / "glossary" / "mainland_40k_tw.tsv")
+    glossary = read_glossary(glossary_path(args))
     rows = []
-    for key, meta in GAMES.items():
+    for key, meta in games(args).items():
         zh = read_ucs(meta["zh"])
         for text_id, text in zh.items():
             for term in glossary:
@@ -184,7 +236,7 @@ def cmd_term_report(args: argparse.Namespace) -> None:
                             "text": text,
                         })
 
-    out = ROOT / "reports" / "term_risks.tsv"
+    out = project_root(args) / "reports" / "term_risks.tsv"
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", encoding="utf-8-sig", newline="") as handle:
         fields = ["game_key", "id", "avoid_tw", "preferred_tw", "text"]
@@ -196,17 +248,38 @@ def cmd_term_report(args: argparse.Namespace) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Dawn of War II UCS translation pipeline")
+    default_process_root = os.environ.get("DOW2_PROCESS_ROOT", str(ROOT.parent))
+    parser.add_argument(
+        "--process-root",
+        default=default_process_root,
+        help="Local folder that contains the copied game folders, for example I:\\translate_process.",
+    )
+    parser.add_argument(
+        "--project-root",
+        default=None,
+        help="Local folder for reports/work/output. Defaults to <process-root>\\translation_project.",
+    )
+    parser.add_argument(
+        "--glossary",
+        default=None,
+        help="Optional glossary TSV path. Defaults to glossary/mainland_40k_tw.tsv in this repository.",
+    )
+    parser.add_argument(
+        "--overrides",
+        default=None,
+        help="Optional manual overrides TSV. Defaults to <project-root>\\work\\manual_overrides.tsv.",
+    )
     sub = parser.add_subparsers(required=True)
 
     report = sub.add_parser("report")
     report.set_defaults(func=cmd_report)
 
     export = sub.add_parser("export")
-    export.add_argument("--game", choices=["all", *GAMES.keys()], default="all")
+    export.add_argument("--game", choices=["all", *GAME_DEFS.keys()], default="all")
     export.set_defaults(func=cmd_export)
 
     build = sub.add_parser("build")
-    build.add_argument("--game", choices=["all", *GAMES.keys()], default="all")
+    build.add_argument("--game", choices=["all", *GAME_DEFS.keys()], default="all")
     build.add_argument("--fill-missing", choices=["english", "blank"], default="english")
     build.set_defaults(func=cmd_build)
 
