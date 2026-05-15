@@ -1,0 +1,16 @@
+# Generated or local-only working files.
+/work/
+/output/
+/reports/
+
+# Do not commit original game assets or full game text.
+/Dawn of War 2/
+/Dawn of War II - Retribution/
+/dow2_tools/
+*.sga
+*.ucs
+
+# Local editor and OS files.
+.vscode/
+Thumbs.db
+desktop.ini
