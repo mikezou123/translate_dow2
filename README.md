@@ -74,10 +74,11 @@ I:\translate_process\translation_project\work\manual_overrides.tsv
 格式：
 
 ```text
-game_key	id	zh_new	notes
-all	920012	蠻荒獸人	同时作用于两个游戏
-dow2	809016	獸人砲兵陣地	只作用于 DoW2
-retribution	809016	獸人砲兵陣地	只作用于 Retribution
+game_key	id	en	zh_new	notes
+all	920012		蠻荒獸人	同时作用于两个游戏
+dow2	809016		獸人砲兵陣地	只作用于 DoW2
+retribution	809016		獸人砲兵陣地	只作用于 Retribution
+all		The Litany of Deployment has been made, brother.	部署禱文已經誦畢，兄弟。	同一句英文在任意 ID 上复用
 ```
 
-`game_key` 可填 `dow2`、`retribution` 或 `all`。构建时人工覆盖表优先级最高。
+`game_key` 可填 `dow2`、`retribution` 或 `all`。构建时人工覆盖表优先级最高。若填写 `en` 但不填写 `id`，同一句英文原文会自动复用该译文。

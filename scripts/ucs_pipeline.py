@@ -179,13 +179,20 @@ def cmd_build(args: argparse.Namespace) -> None:
     all_games = games(args)
     targets = all_games.keys() if args.game == "all" else [args.game]
     manual_overrides: dict[tuple[str, str], str] = {}
+    manual_by_source: dict[str, str] = {}
     manual_path = overrides_path(args)
     if manual_path.exists():
         with manual_path.open("r", encoding="utf-8-sig", newline="") as handle:
             for row in csv.DictReader(handle, delimiter="\t"):
                 value = row.get("zh_new", "")
                 if value:
-                    manual_overrides[(row["game_key"], row["id"])] = value
+                    game_key = row.get("game_key", "")
+                    text_id = row.get("id", "")
+                    source = row.get("en", "")
+                    if game_key and text_id:
+                        manual_overrides[(game_key, text_id)] = value
+                    if source:
+                        manual_by_source[source] = value
 
     for key in targets:
         meta = all_games[key]
@@ -206,6 +213,8 @@ def cmd_build(args: argparse.Namespace) -> None:
                 output[text_id] = manual_overrides[(key, text_id)]
             elif ("all", text_id) in manual_overrides:
                 output[text_id] = manual_overrides[("all", text_id)]
+            elif en_text in manual_by_source:
+                output[text_id] = manual_by_source[en_text]
             elif text_id in overrides:
                 output[text_id] = overrides[text_id]
             elif text_id in zh:
