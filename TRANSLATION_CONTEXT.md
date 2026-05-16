@@ -179,6 +179,34 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 05:05 JST
+
+Workspace automation run started at 04:54 JST and was stopped early at user
+direction after repeated UCS write attempts failed. The run added 176
+Retribution manual override rows for residual-English/missing voice and combat
+strings, mainly Space Marine Terminator, Rhino/Razorback, Predator, Land
+Raider, tactical order, capture, idle, and death barks around IDs 9028542-
+9032194. It also covered the previously blocked missing strings 9075198,
+9088824, and 9126793, and corrected the existing all-game override for 9075488
+from `火箭發射器` to `導彈發射器`.
+
+The required build command was attempted several times, including one final
+explicit write attempt after user instruction, but still failed with
+`PermissionError: [Errno 13] Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+A direct non-destructive ReadWrite open of the same UCS file also failed with
+access denied, so the output UCS files were not updated.
+
+Read-only verification against the current on-disk outputs: dow2 50695 lines,
+retribution 71720 lines; current old-term scan found 1 DOW2 hit at ID 9075488
+because the corrected override could not be rebuilt into the UCS output, and 0
+Retribution hits. Current residual same-as-English/ascii scan: dow2 598,
+retribution 268. A no-write projected pipeline check using the current override
+table produced the stable line counts with projected old-term hits 0 for both
+games and projected residual same-as-English/ascii counts dow2 595,
+retribution 265. No stale pipeline child process remained by the final process
+check.
+
 ### 2026-05-17 04:39 JST
 
 Workspace automation run started at 04:39:59 JST but could not complete the
