@@ -57,6 +57,13 @@ I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2
   Use `WAAAGH！` for standalone shouts, and `WAAAGH` without punctuation in
   compounds such as `WAAAGH 能量`, `WAAAGH 戰旗`, `WAAAGH 點數`, and
   `WAAAGH 技能`.
+- Encoding safety rule: do not pass Traditional Chinese translation literals
+  through a PowerShell here-string or pipeline into Python. The console code
+  page can replace unsupported characters with literal `?` before Python sees
+  them. Use `apply_patch` for repository Markdown, read translation batches
+  from UTF-8/UTF-8-SIG files, or use Python `\uXXXX` escapes for non-ASCII
+  string literals. After scripted TSV writes, scan the `zh_new` column for
+  suspicious `?`, repeated `??`, `WAAAGH?`, and mojibake before building UCS.
 
 ## Required Terms
 

@@ -44,6 +44,27 @@ war cry and cultural/psychic concept. Do not translate it as the generic cry
 in compounds such as `WAAAGH energy`, `WAAAGH banner`, `WAAAGH points`, or
 `WAAAGH ability`.
 
+## Encoding Safety
+
+When editing `manual_overrides.tsv`, avoid any workflow that sends Traditional
+Chinese text through a PowerShell here-string or pipeline into Python, because
+the Windows console code page may replace unsupported characters with literal
+`?` before Python receives them.
+
+Use one of these safer methods instead:
+
+- edit repository Markdown files with `apply_patch`
+- read translations from an existing UTF-8/UTF-8-SIG file
+- use Python string `\uXXXX` escapes for non-ASCII translation literals
+- use the bundled Python executable and open TSV files with
+  `encoding="utf-8-sig"` and `newline=""`
+- use `csv.DictReader` / `csv.DictWriter` with tab delimiters for TSV changes
+
+After every scripted TSV write, run a structured check on the `zh_new` column
+for suspicious corruption such as literal `?`, repeated `??`, `WAAAGH?`, and
+known mojibake patterns. If corruption is found, fix it before building UCS
+outputs or committing context updates.
+
 ## Build Command
 
 Attempt this after each batch:
