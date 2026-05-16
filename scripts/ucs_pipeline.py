@@ -24,6 +24,15 @@ GAME_DEFS = {
 ID_LINE = re.compile(r"^(\d+)\t(.*)$")
 ASCII_WORD = re.compile(r"[A-Za-z]{3,}")
 
+FINAL_REPLACEMENTS = (
+    ("帝國衛隊士兵", "星界軍士兵"),
+    ("帝國衛隊老兵", "星界軍老兵"),
+    ("帝國衛隊防衛部隊", "星界軍防衛部隊"),
+    ("帝國衛隊", "星界軍"),
+    ("帝國防衛軍", "星界軍"),
+    ("帝國衛兵", "星界軍士兵"),
+)
+
 
 def resolve_path(value: str | Path) -> Path:
     return Path(value).expanduser().resolve()
@@ -104,6 +113,13 @@ def apply_avoid_replacements(text: str, glossary: list[dict[str, str]]) -> str:
             if bad == preferred or bad in preferred:
                 continue
             result = result.replace(bad, preferred)
+    return result
+
+
+def apply_final_replacements(text: str) -> str:
+    result = text
+    for old, new in FINAL_REPLACEMENTS:
+        result = result.replace(old, new)
     return result
 
 
@@ -223,6 +239,8 @@ def cmd_build(args: argparse.Namespace) -> None:
                 output[text_id] = en_text
             else:
                 output[text_id] = ""
+
+            output[text_id] = apply_final_replacements(output[text_id])
 
         out = project_root(args) / "output" / key / "Locale" / "TChinese" / "DOW2.ucs"
         write_ucs(out, output)
