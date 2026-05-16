@@ -179,6 +179,38 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 04:39 JST
+
+Workspace automation run started at 04:39:59 JST but could not complete the
+translation batch because the sandbox denied write access to
+`I:\translate_process\translation_project\work\manual_overrides.tsv` and to the
+generated output UCS files. A 20-line residual-English cleanup batch was
+prepared for Retribution voice/objective/map strings around IDs 9075198,
+9088824, 9124155-9126793, 9132668, 9140803, and 9142835, but it was not written.
+
+Attempting the required build failed with `PermissionError: [Errno 13]
+Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+Read-only verification against the existing outputs still matched the stable
+counts: dow2 50695 lines, retribution 71720 lines. Old problem term scan: 0
+terms hit in both outputs. Residual-English/ascii equality scan against current
+outputs: dow2 599 same-as-English ascii entries, retribution 268
+same-as-English ascii entries. No translation/output commit was possible because
+the required translation/output files could not be changed. Committing this
+run-log update was also attempted, but Git could not create `.git/index.lock`
+due to permission denial, so the context update remains uncommitted in the
+working tree.
+
+The cause was the workspace cron configuration: it listed only
+`I:\Github\translate_dow2` as its workspace directory, so the scheduled run could
+not write outside that workspace to `I:\translate_process`. The cron automation
+has now been updated to include both writable directories:
+
+```text
+I:\Github\translate_dow2
+I:\translate_process
+```
+
 ### 2026-05-17 04:35 JST
 
 Created this persistent context file for workspace-based automation. The next
