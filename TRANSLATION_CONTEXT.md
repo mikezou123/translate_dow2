@@ -179,6 +179,27 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 05:31 JST
+
+The 05:16 JST workspace automation run was interrupted by the user after it
+used `Start-Sleep -Seconds 960` to pad runtime. The sleep runner was later
+terminated from the main chat. The run had already made useful
+`manual_overrides.tsv` progress before sleeping: it wrote a current-run batch
+covering UI ability, targeting, prompt, objective, DOW2 map-name, wargear,
+tutorial, achievement, shared label, NPC equipment, DOW2 Ork dialogue, and rich
+presence cleanup entries. A quick count during the run reported 117 rows in
+those current-run note categories.
+
+The required UCS build still failed inside the cron context with
+`PermissionError` on
+`I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs`.
+This is acceptable for future scheduled runs as long as
+`manual_overrides.tsv` is updated; the main chat can rebuild UCS outputs later
+from the latest override table. Automation instructions were updated to forbid
+`sleep`, `Start-Sleep`, `timeout`, ping loops, or any idle waiting to satisfy
+the minimum duration. The duration requirement now means active translation,
+validation, audit, and cleanup work only.
+
 ### 2026-05-17 05:05 JST
 
 Workspace automation run started at 04:54 JST and was stopped early at user

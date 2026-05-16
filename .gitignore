@@ -12,5 +12,7 @@
 
 # Local editor and OS files.
 .vscode/
+__pycache__/
+*.py[cod]
 Thumbs.db
 desktop.ini

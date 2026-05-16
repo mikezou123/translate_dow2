@@ -9,8 +9,15 @@ conversation.
 - Record the Tokyo start time at the beginning of every run.
 - After each small translation batch, check the Tokyo time again.
 - If total elapsed time is under 25 minutes, continue with another batch.
-- Stop only after total elapsed time is at least 25 minutes, then verify and
-  summarize.
+- Do not use `sleep`, `Start-Sleep`, `timeout`, ping loops, or any idle waiting
+  to satisfy the minimum duration.
+- The minimum duration means active work time. Keep finding, translating,
+  validating, deduplicating, and writing useful `manual_overrides.tsv` changes
+  until the elapsed time reaches the target.
+- If no strong translation candidates remain, spend the remaining active time on
+  terminology consistency checks, duplicate override audits, residual-English
+  triage, old-term scans, and context cleanup. Do not idle.
+- Stop after at least 25 minutes of active work, then verify and summarize.
 
 ## Translation Work
 
@@ -33,18 +40,23 @@ Keep all text Traditional Chinese with mainland Warhammer 40,000 terminology.
 
 ## Build Command
 
-Run this after each batch:
+Attempt this after each batch:
 
 ```powershell
 C:\Users\mikez\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe I:\Github\translate_dow2\scripts\ucs_pipeline.py --process-root I:\translate_process build --game all --fill-missing english
 ```
 
-This must update:
+This normally updates:
 
 ```text
 I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
 I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
 ```
+
+If the cron run cannot write the output UCS files, record the failure clearly
+and keep treating successful `manual_overrides.tsv` updates as useful progress.
+The UCS files can be rebuilt later from the main chat using the latest manual
+override table.
 
 ## Verification
 
