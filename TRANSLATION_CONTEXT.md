@@ -207,6 +207,14 @@ games and projected residual same-as-English/ascii counts dow2 595,
 retribution 265. No stale pipeline child process remained by the final process
 check.
 
+Manual follow-up from the main chat at 05:08 JST used the same build command
+outside the cron run and successfully rebuilt both UCS outputs. This confirms
+that `ucs_pipeline.py`, the output files, and normal Windows ACLs are usable;
+the earlier failure is most likely specific to the cron run's execution context
+or a transient lock during that run. Verified output line counts stayed stable:
+dow2 50695, retribution 71720. Old problem term scan returned 0 hits for both
+rebuilt outputs.
+
 ### 2026-05-17 04:39 JST
 
 Workspace automation run started at 04:39:59 JST but could not complete the
