@@ -52,6 +52,11 @@ I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2
 - If a line is ambiguous, prefer a conservative translation and add a note in
   `manual_overrides.tsv`.
 - Do not invent lore terms when an established term exists.
+- Treat Ork `Waaagh` / `WAAAGH` as a faction-specific war cry and
+  cultural/psychic concept. Do not translate it as the generic cry `哇啊啊`.
+  Use `WAAAGH！` for standalone shouts, and `WAAAGH` without punctuation in
+  compounds such as `WAAAGH 能量`, `WAAAGH 戰旗`, `WAAAGH 點數`, and
+  `WAAAGH 技能`.
 
 ## Required Terms
 
@@ -178,6 +183,55 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 06:09 JST
+
+Main chat follow-up added the confirmed Ork `Waaagh` / `WAAAGH` terminology
+rule to this context, to `AUTOMATION_TASK.md`, and to the active workspace
+automation prompt. `Waaagh` should no longer be translated as the generic cry
+`哇啊啊`; use `WAAAGH！` for standalone shouts and `WAAAGH` in compounds.
+
+`I:\translate_process\translation_project\work\manual_overrides.tsv` was
+normalized for this rule. Structured TSV verification found 0 remaining
+`哇啊啊`, `WAAAGH?`, or lowercase `Waaagh` problems in the `zh_new` column
+across 163 Waaagh-related rows.
+
+The main chat rebuild succeeded and wrote both output UCS files. Output counts
+remained stable: dow2 50695 lines, retribution 71720 lines. Old problem term
+scan, including `哇啊啊` and `WAAAGH?`, returned 0 hits. Residual
+same-as-English/ascii counts after the rebuild were dow2 136 and retribution
+158.
+
+### 2026-05-17 06:02 JST
+
+Workspace automation run started at 05:37 JST and continued with active
+translation, terminology, and audit work for more than 25 minutes. The run
+updated `I:\translate_process\translation_project\work\manual_overrides.tsv`
+with 471 new override rows. The largest groups were DOW2 residual Ork/combat/
+Eldar/Scout voice cleanup, Retribution residual voice and Tyranid label cleanup,
+flamer/lascannon/Carnifex terminology normalization, Waaagh voice consistency,
+UI mixed-English labels, and subtitle cue localization.
+
+The required UCS build was attempted after each batch, but every attempt failed
+before writing outputs with `PermissionError: [Errno 13] Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+A direct non-destructive read/write open failed for both output UCS files, so
+the output files were not updated during this scheduled run. The on-disk output
+line counts remained stable: dow2 50695 lines, retribution 71720 lines.
+On-disk old problem term scan remained 0 for both games; on-disk residual
+same-as-English/ascii counts remained dow2 595 and retribution 265.
+
+A no-write projected build using the updated manual override table produced the
+stable counts dow2 50695 and retribution 71720, projected old problem term hits
+0 for both games, projected residual same-as-English/ascii counts dow2 136 and
+retribution 159, and projected contains-ascii counts dow2 1116 and retribution
+1349. Today's new rows passed exact source/ID matching where applicable and
+placeholder preservation checks. No stale `python`/`ucs_pipeline.py` child
+process was found by the final process check. Committing the repository-side
+context update was attempted, but Git could not create `.git/index.lock` due to
+permission denial, so the context update remains uncommitted in the working
+tree. `manual_overrides.tsv` is outside the repository and remains the primary
+useful output for the run.
 
 ### 2026-05-17 05:31 JST
 

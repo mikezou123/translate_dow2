@@ -38,6 +38,12 @@ You may advance both `dow2` and `retribution` in the same run. Prioritize:
 
 Keep all text Traditional Chinese with mainland Warhammer 40,000 terminology.
 
+Terminology rule for Ork `Waaagh` / `WAAAGH`: keep it as the faction-specific
+war cry and cultural/psychic concept. Do not translate it as the generic cry
+`哇啊啊`. Use `WAAAGH！` for standalone shouts, and `WAAAGH` without punctuation
+in compounds such as `WAAAGH energy`, `WAAAGH banner`, `WAAAGH points`, or
+`WAAAGH ability`.
+
 ## Build Command
 
 Attempt this after each batch:
