@@ -316,6 +316,25 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 22:17-22:57 JST
+
+Main chat 40-minute active translation pass continued in
+`scripts/ucs_pipeline.py` and rebuilt both UCS outputs after each small batch.
+Scope: Deathwatch/Death Guard disambiguation, Power Generator and Tarantula
+turret wording, Force Commander vs Eldar Exarch cleanup, Horus Heresy/Trythos
+/ Lord of Flies lore fixes, Chapter armory and Machine God terminology, thunder
+hammer/storm shield standardization, Isador Akios and Ruinous Powers fixes,
+Superior/Relic weapon quality names, Blind Grenade wording, Eldar insult and
+installer wizard fixes, Guardsman/Guardsmen -> 星界軍士兵 context cleanup, `炮`
+glyph unification, Chapter -> 戰團 fixes, Blood Ravens Company numbering, and
+第85文多蘭星界軍團 / 能量力場 / 力場發生器 terminology.
+
+Important additions for future rules: keep `雷霆錘` and `風暴盾`; translate
+`Superior` equipment as `精良`, `Relic` equipment as `遺物`, `Blind Grenade` as
+`致盲手雷`, `Chapter` as `戰團`, `Company` as `連` in Space Marine organization,
+and `Guardsman/Guardsmen` as `星界軍士兵` when referring to Imperial Guard
+personnel. Preserve `Planetary Defense Force` as `行星防衛部隊`.
+
 ### 2026-05-17 19:53-20:04 JST
 
 Main chat short active translation pass focused on repeated DOW2/Retribution
