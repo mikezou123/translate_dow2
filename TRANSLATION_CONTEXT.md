@@ -84,7 +84,9 @@ Slaanesh = 色孽
 plasma = 等離子
 missile = 導彈
 Dreadnought = 無畏機甲
+Venerable Dreadnought = 尊者無畏機甲
 Wraith = 幽冥
+Wraithlord = 幽冥領主
 Cyrus = 賽勒斯
 Jonah Orion = 喬納·奧賴恩
 Thule = 圖勒
@@ -120,6 +122,7 @@ Alpha Legion = 阿爾法軍團
 Razorback = 剃刀背運兵車
 Rhino = 犀牛運兵車
 Predator = 掠食者 / 掠食者坦克
+Land Raider = 蘭德襲擊者
 Warhammer 40,000: Dawn of War II = 戰鎚 40,000：戰爭黎明 II
 Chaos Rising = 混沌崛起
 Retribution = 懲罰
@@ -131,6 +134,8 @@ Hab Spire Legis = 萊吉斯居住尖塔
 Astronomic Array = 天文陣列
 Techpriest = 技術神甫
 Mek / Mekboy = 技霸 / 技霸小子
+Big Mek = 大技霸
+Artificer Power Armor = 精工動力甲
 Scout = 偵察兵
 Tyrant Guard = 暴君守衛
 Termagant = 槍蟲
@@ -326,6 +331,37 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-18 00:44-01:03 JST
+
+Main chat 20-minute translation pass started at 00:44:32 JST and continued in
+`scripts/ucs_pipeline.py` final override rules, with UCS rebuilds after each
+small batch. The run focused on visible tutorial text, ability descriptions,
+unit and vehicle terminology, and old mechanical `給予` / `得到` wording.
+
+Major fixes in this run:
+- DOW2 and Retribution tutorial cleanup: highlighted-area prompts, Force
+  Commander resilience, stimulant-pack guidance, combat training unlocks,
+  Cyrus ammunition unlocks, Thaddeus reckless-state text, Jonah staff/Avenger
+  unlocks, and multiple ability-unlocked descriptions.
+- Ork and Mek cleanup: `Shoota Boyz = 獸人槍小子`; `Mek/Mekboy = 技霸/技霸小子`;
+  Big Mek wargear and force-field descriptions; preserved `WAAAGH!` as the
+  Ork war cry/concept.
+- Tyranid cleanup: `Hormagaunt = 刀蟲`, `Termagant = 槍蟲`, and `Hive = 蟲巢`;
+  removed remaining old `角蟲`/`蟲王` output hits.
+- Vehicle cleanup: fixed a DOW2 `Land Raider` line that had been mistranslated
+  as `掠食者坦克`; unified `Land Raider = 蘭德襲擊者` and `Land Raider Redeemer =
+  蘭德襲擊者救贖者`; fixed a `Razorback` combat line that had been mistranslated
+  as `犀牛運兵車`.
+- Wargear/lore cleanup: `Artificer Power Armor = 精工動力甲`, daemon shield,
+  Dreadnought and Land Raider status lines, smoke grenade building-eviction
+  text, and several Chaos Rising corruption/ability lines.
+
+Validation during the run: both UCS outputs rebuilt successfully and kept the
+stable line counts, dow2 50695 and retribution 71720. Old problem term scan,
+including `角蟲`, `蟲王`, `獸人槍槍小子`, and `蘭德掠襲者`, returned 0 hits.
+Encoding scan showed only the original `???` placeholder IDs 511755 and 607755
+in both outputs. `git diff --check` reported only CRLF normalization warnings.
 
 ### 2026-05-18 00:14-00:42 JST
 
