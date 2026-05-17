@@ -105,6 +105,15 @@ bolter = 爆彈槍
 storm bolter = 風暴爆彈槍
 heavy bolter = 重型爆彈槍
 Eldritch Bolt = 靈能箭
+Space Marine Captain = 連長
+Battle Barge = 戰鬥駁船
+Elena Derosa = 埃琳娜·德羅莎
+Vandis = 范迪斯
+Deimos = 戴莫斯
+Gryphonne IV = 格里芬 IV
+Kiwon = 基旺
+Tranthios III = 特蘭西奧斯三號
+Alpha Legion = 阿爾法軍團
 ```
 
 ## Old Terms To Avoid
@@ -159,6 +168,24 @@ Scan for and replace these old or incorrect forms:
 參予
 強軔
 機關槍
+外星
+祈禱者
+葛麗芬
+川希歐思
+奇王
+直戰團
+攻擊攻擊
+戴諾斯
+阿法軍團
+阿爾法戰團
+艾雷那
+迪羅沙
+德羅沙
+凡迪斯
+技能開啟
+能力開啟
+武器開啟
+可使用於
 ```
 
 `異形` and `異星人` should usually become `異族`; in Tyranid-specific context
@@ -206,6 +233,39 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 13:13-13:28 JST
+
+Main chat ran another active manual translation pass after the user requested a
+40-minute target. The run started at 13:13:52 JST. The pass focused on
+high-confidence cleanup rather than idle waiting, and ended after repeated
+build/scan cycles found no further ordinary text targets beyond internal UI and
+developer placeholders.
+
+The run updated
+`I:\translate_process\translation_project\work\manual_overrides.tsv` to 67330
+rows and rebuilt both UCS outputs successfully. New batches under
+`I:\Github\translate_dow2\work_batches` covered DOW2 Tyranid/xenos readable
+lines, DOW2 game-specific override refreshes, Space Marine `Captain` rank
+cleanup, wargear and lore descriptions, Thur'Abis/Deimos/Kiwon/Gryphonne
+terminology, Alpha Legion correction, Elena Derosa briefing text, and the two
+remaining ordinary `Die.` voice/text entries. `scripts\ucs_pipeline.py` gained
+additional final replacements for stable UI and terminology normalization such
+as `能力開啟 -> 能力解鎖`, `上尉 -> 連長` in Space Marine contexts, `戴諾斯 ->
+戴莫斯`, `艾雷那/迪羅沙/凡迪斯` normalization, and `MK Iva -> MK IVa`.
+
+The build command succeeded and wrote:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Verification after rebuild: dow2 50695 lines, retribution 71720 lines. Expanded
+old-term scans returned 0 hits for both outputs. Encoding scan found 0 `U+FFFD`,
+0 `WAAAGH?`, and only the two original `???` placeholder rows. Residual
+same-as-English ASCII scan after filtering leaves only internal UI/resource
+labels, rich-presence placeholders, developer strings, or Tau sept names.
 
 ### 2026-05-17 12:20-13:00 JST
 
