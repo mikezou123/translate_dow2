@@ -172,6 +172,10 @@ Teleportarium = 傳送室
 Capillary Tower = 毛細塔
 biomass = 生物質
 psychic power / spell = 靈能力；混沌巫術語境可用咒法/亞空間巫術
+Swarmlord = 蟲群之主
+Servitor = 機僕（機械教/星際戰士構造體語境）；Retinue/entourage 不要誤改為機僕
+Caliban = 卡利班
+Vulkan = 伏爾甘
 ```
 
 ## Old Terms To Avoid
@@ -322,6 +326,43 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-18 00:14-00:42 JST
+
+Main chat translation run started at 00:14:23 JST. The run focused on a
+script-level final override pass in `scripts/ucs_pipeline.py`, followed by
+standard all-game UCS rebuilds. This batch prioritized visible gameplay text,
+DOW2 lines where Retribution already had better wording for the same English
+ID, and obvious old mistranslations.
+
+Major fixes in this run:
+- DOW2 tutorial/UI cleanup: unit selection, camera focus, attack/move orders,
+  rally points, supply crates, power nodes, resource descriptions, fall-back
+  guidance, Zeal/global ability text, equipment/accessory explanations, and
+  profile recovery prompts.
+- DOW2 campaign cleanup: early Ork tutorial lines, Argus/Calderis/Typhon
+  Hive Fleet exposition, Angel Forge and final Hive Ship objective text,
+  Zoanthrope/Hive Mind descriptions, Avitus/Thaddeus/Cyrus ability guidance,
+  and several secure-stratagem messages.
+- Wargear/lore cleanup across both outputs: Assault Cannon lore, plasma pistol
+  and Dark Angels/Caliban references, Imperial Fists/Salamanders/Space Wolves
+  relic text, Techmarine Isaak Jordanos, Kronus/Imperial Guard background, and
+  several Blood Ravens relic descriptions.
+- Chaos Rising cleanup: Judgment of Carrion/Galan expedition summaries,
+  Great One/Kyras lines, vox-cloak text, Space Hulk boarding lines, holy/unholy
+  fury descriptions, warp tome descriptions, and daemon/Eliphas dialogue.
+- Retribution cleanup: Chaos Sorcerer abilities, Lord General/Storm Trooper
+  ability text, Eldar/Exarch ability descriptions, Imperial Guard campaign
+  dialogue, Ork voice lines, and late profile/stat recovery prompts.
+- Terminology additions: `Swarmlord = 蟲群之主`; `Servitor = 機僕` only for
+  mechanic construct contexts; `Caliban = 卡利班`; `Vulkan = 伏爾甘`.
+
+Validation during the run: both UCS outputs rebuilt successfully after each
+batch. Stable line counts remained dow2 50695 and retribution 71720. Old-term
+scan for the known problem list returned 0 hits. Encoding scan found no
+replacement-character corruption and only the original `???` placeholder IDs
+511755 and 607755 in both outputs. Final git commit/push was performed from
+the main chat after validation.
 
 ### 2026-05-17 22:58-23:38 JST
 
