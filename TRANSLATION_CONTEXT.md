@@ -92,7 +92,7 @@ Black Legion = 黑色軍團
 Dark Gods = 黑暗諸神
 Blood for the Blood God = 血祭血神
 Skulls for the Skull Throne = 顱獻顱座
-Warp Spider = 傳送蛛
+Warp Spider = 躍遷蜘蛛
 Howling Banshee = 嚎叫女妖
 missile launcher = 導彈發射器
 lascannon = 激光炮
@@ -132,6 +132,17 @@ Carnifex = 卡尼菲克斯
 Webway Assembly = 網道樞紐
 Webway portal = 網道傳送門
 Fire Prism = 火棱坦克
+Prism Cannon = 火棱炮
+Craftworld = 方舟世界
+Soul Stone = 靈魂石
+Stikkbombz = 棒槌炸彈
+Slugga Boyz = 砍砍小子
+Deff Dread = 死無畏
+Looted Tank = 掠奪坦克
+Ravener Alpha = 掘蟒蟲首領
+Lictor Alpha = 利卡特首領
+Synapse = 突觸
+T'au / Tau castes = 鈦族，火氏族，土氏族，水氏族，以太氏族
 Avatar of Khaine = 凱恩化身
 Chaos Havocs = 混沌浩劫小隊
 Plague Champion = 疫病冠軍
@@ -257,6 +268,31 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 14:19-14:38 JST
+
+Main chat translation run started at 14:19:24 JST. The user later noted that
+the current Codex quota was nearly exhausted, so the run was closed after the
+active batch instead of continuing toward the earlier 40-minute target.
+
+This batch covered early campaign dialogue polish, flank/objective phrasing,
+WAAAGH mechanics and Ork voice prose, unlock and ability descriptions, Tau
+caste/lore terminology, Eldar Craftworld/Soul Stone/Fire Prism/Warp Spider
+terms, Ork Stikkbomb/Slugga/Deff Dread/Looted Tank terms, Tyranid
+Carnifex/Ravener/Lictor/Synapse terms, and UI/stat wording such as health,
+energy, resources, deployment, highlighting, wargear, and synchronized kills.
+The appended manual override rows were also recorded in
+`work_batches/2026-05-17-mainchat-ui-unit-lore-polish.tsv` for repository
+tracking.
+
+The build command completed successfully and regenerated both UCS outputs:
+`I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs`
+and
+`I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs`.
+Final verification: dow2 50695 lines, retribution 71720 lines, 0 Unicode
+replacement characters, 0 `WAAAGH?`, and 0 hits from the expanded old-term
+scan. The only repeated question-mark rows remaining are the original `???`
+placeholder rows at IDs 511755 and 607755 in both games.
 
 ### 2026-05-17 13:29-14:00 JST
 

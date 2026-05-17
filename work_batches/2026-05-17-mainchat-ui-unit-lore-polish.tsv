@@ -1,0 +1,39 @@
+game_key	id	en	zh_new	notes
+all	925051	Look at the size of those monsters! Brace for heavy combat!	看看那些怪物的體型！準備迎接激戰！	2026-05-17 14:19 JST main chat early campaign polish
+all	925060	My battle armor is ruined! I won't last much longer… Should I fall back to the medicae temple?	我的動力甲毀了！我撐不了多久了……要撤回醫療聖堂嗎？	2026-05-17 14:19 JST main chat early campaign polish
+all	925071	For the love of all that's holy, what are you doing out there? Brother Tarkus was your responsibility! 	看在一切神聖之物的份上，你在外面做什麼？塔庫斯兄弟本是你的責任！	2026-05-17 14:19 JST main chat early campaign polish
+all	925106	Hah! You humies come fer a fight, yeah? I'll give ya a fight!	哈！你們這些蝦米是來找架打的，對吧？俺就給你們一場好架！	2026-05-17 14:19 JST main chat early campaign polish
+all	925175	They're heavily dug in, sergeant. We need to flank those greeskins!	他們已經深挖固守，軍士。我們得從側翼包抄那些綠皮！	2026-05-17 14:19 JST main chat flank line polish
+all	925197	Ya trying ta stop me fun, eh humie. Well come on\, then. Dok Grot's gots nuff surjery skills for the lot o' ya! 	你想壞俺的樂子，是吧，蝦米。那就來吧。格羅特醫生有的是手術本事招呼你們！	2026-05-17 14:19 JST main chat early campaign polish
+all	9018356	We should flank them. Another entrance could be less defended.	我們應該從側翼包抄他們。另一個入口的防禦可能較弱。	2026-05-17 14:19 JST main chat flank line polish
+all	9025551	Dat's good work, but dere's anudder camp to da south.  Betcha we can hit 'em from the rear, what dey call a 'flankin' manoover'	幹得好，不過南邊還有另一個營地。俺打賭我們能從後面揍他們，這就叫「側翼包抄」什麼的。	2026-05-17 14:19 JST main chat flank line polish
+all	9025552	Dat's good work, but dere's anudder camp to da north.  Betcha we can hit 'em from the rear, what dey call a 'flankin' manoover'	幹得好，不過北邊還有另一個營地。俺打賭我們能從後面揍他們，這就叫「側翼包抄」什麼的。	2026-05-17 14:19 JST main chat flank line polish
+all	9025169	You boyz work for Boss Boartoof now.  'ead on up ter 'is camp.	你們這些小子現在替豬牙老大幹活。快上他的營地去！	2026-05-17 14:19 JST main chat ork dialogue polish
+all	9024302	Consume mass quantities!	大口吞噬！	2026-05-17 14:19 JST main chat voice polish
+all	9109367	The Eldar are stirring up the Orks in the sector, and trying to stir up a massive Waaaghh! Why they are doing this is a mystery, but Captain Thule fears the worst.	靈族正在煽動星區內的獸人，試圖引發一場大規模 WAAAGH！他們為何這麼做仍是謎團，但圖勒連長擔心最壞情況。	2026-05-17 14:19 JST main chat WAAAGH prose polish
+all	9110440	Earn Waaagh! by fighting and killing your enemies.	透過戰鬥並殺死敵人來獲得 WAAAGH！	2026-05-17 14:19 JST main chat WAAAGH prose polish
+all	9120598	Channel the power of da Waaagh! to make all nearby boyz faster and harder to kill.	引導 WAAAGH 的力量，使附近所有小子移動更快，也更難被殺死。	2026-05-17 14:19 JST main chat WAAAGH prose polish
+all	9128389	Release the power of the Waaagh! to stun nearby enemies and temporarily boost the speed, damage and defense of nearby Ork infantry. 	釋放 WAAAGH 的力量震暈附近敵人，並暫時提升附近獸人步兵的速度、傷害與防禦。	2026-05-17 14:19 JST main chat WAAAGH prose polish
+all	9040589	Upgrades your Stronghold to level 2.  Unlock Devastator Plasma Cannon Squad, Dreadnought, Razorback and Librarian.	將據點升至等級 2。解鎖毀滅者等離子炮小隊、無畏機甲、剃刀背運兵車和智庫。	2026-05-17 14:19 JST main chat unlock text polish
+all	9040591	Upgrades your Stronghold to level 3. Unlocks Predator Tank.	將據點升至等級 3。解鎖掠食者坦克。	2026-05-17 14:19 JST main chat unlock text polish
+all	9050613	Upgrades your Teleporta Platform to level 2. Unlock Stikkbommaz, Tankbustas, Wartrukk, Deff Dread and Weirdboy.	將傳送平台升至等級 2。解鎖棒槌炸彈小子、坦克殺手、戰鬥卡車、死無畏和怪異小子。	2026-05-17 14:19 JST main chat unlock text polish
+all	9050618	Upgrades your Teleporta Platform to level 3. Unlock Nob Squad, Kommando, and Looted Tank.	將傳送平台升至等級 3。解鎖老大兵小隊、突擊隊小子和掠奪坦克。	2026-05-17 14:19 JST main chat unlock text polish
+all	9061960	Gives the Farseer the Time Field ability which slows down movement in an area and makes units unable to attack. Increases health of the Farseer.	賦予先知「時間力場」技能，可減緩區域內單位移動並使其無法攻擊。提高先知生命值。	2026-05-17 14:19 JST main chat ability text polish
+all	9063729	Throw a grenade which temporarily counters gravity, incapacitating nearby units.	投擲一枚手雷，暫時反轉重力，使附近單位失去行動能力。	2026-05-17 14:19 JST main chat ability text polish
+all	9001490	You earn Greater Good points by killing enemy units and dying in combat. Spend the resource on the Tau's global abilities	透過擊殺敵方單位和在戰鬥中死亡獲得大義點數。將此資源用於鈦族的全局能力。	2026-05-17 14:19 JST main chat Tau text polish
+all	9107313	A prized relic of the Blood Ravens 9th company, this missile launcher last saw service during a bold raid on Tau armored columns during the Kaurava Campaign. By the time the sun rose fully over the Clement Hills, thirty Tau skimmer-tanks and crisis suits were smoking ruins. 	血鴉第九連珍藏的上古聖物。這具導彈發射器最後一次服役，是在考拉瓦戰役中一次大膽突襲鈦族裝甲縱隊之時。當太陽完全升上仁慈丘陵時，三十輛鈦族浮空坦克與危機戰鬥服都已化為冒煙廢墟。	2026-05-17 14:19 JST main chat Tau relic lore polish
+all	9041725	Tough melee troops equipped with a Choppa and Slugga. Can be upgraded with Burnas and with a Nob Leader to unlock the Swamp Em' ability.	裝備砍刀和手槍的堅韌近戰部隊。可升級火焰噴射器，並升級老大頭領以解鎖「淹沒他們」能力。	2026-05-17 14:19 JST main chat unit description polish
+all	9041773	Can be upgraded with the Big Shoota which grants the Aiming? Wotz Dat? ability. Can also be upgraded with a Nob Leader for greater durability.	可升級大槍，獲得「瞄準？那是啥？」能力。也可升級老大頭領以提高耐久。	2026-05-17 14:19 JST main chat unit description polish
+all	9044968	Lightly armored melee unit.  Can also bombard units from a distance with Stikkbombz.	輕裝甲近戰單位，也能用棒槌炸彈從遠距離轟炸敵軍。	2026-05-17 14:19 JST main chat unit description polish
+all	9046565	Gives the Apothecary more health, health regeneration and grants the Advanced Healing ability that allows him to heal allies that are near him. If the Apothecary is knocked unconscious, there is a chance he will be revived shortly after.	提高藥劑師生命值與生命恢復，並賦予進階治療能力，使他能治療附近盟友。若藥劑師失去意識，有機率在短時間後復甦。	2026-05-17 14:19 JST main chat unit description polish
+all	9046720	Excels at stealth and hit and run attacks. Gives fear debuffs to nearby enemies when it attacks. Increases the the fear debuff that all Lictors cause to enemies they attack	擅長滲透和打帶跑攻擊。攻擊時會對附近敵人施加恐懼減益，並提高所有利卡特對攻擊目標造成的恐懼效果。	2026-05-17 14:19 JST main chat unit description polish
+all	9049014	Fast and disruptive, excels at rushing into enemy lines or surprising them by tunneling beneath them. Grants the Fleet of Claw ability to Raveners.	迅捷且擅長擾亂敵軍，適合衝入敵陣，或從地下掘進突襲敵人。賦予掘蟒蟲「迅捷之爪」能力。	2026-05-17 14:19 JST main chat unit description polish
+all	9049276	sneaky boy who likes to stab and shoot from the shadows, grants Kommando Squad big shootas 	鬼祟的小子，喜歡從陰影中捅人和開槍。賦予突擊隊小子小隊大槍。	2026-05-17 14:19 JST main chat unit description polish
+all	9054510	Ambush Imperial Transport Column	伏擊帝國運輸縱隊	2026-05-17 14:19 JST main chat objective title polish
+all	9067431	Strategic assets like these grant us combat advantages and allow us to more easily reinforce in the field.	這類戰略資產能為我們提供戰鬥優勢，並讓我們更容易在戰場上增援。	2026-05-17 14:19 JST main chat strategic asset polish
+all	9067455	Sufficient donations of this sort will grant you a new piece of wargear in return. 	捐獻足夠數量的此類物資後，你會獲得一件新的戰爭裝備作為回報。	2026-05-17 14:19 JST main chat strategic asset polish
+all	9068520	I have removed the Captain from the stasis field.	我已將連長移出停滯力場。	2026-05-17 14:19 JST main chat Thule stasis polish
+all	9061667	As each squad under your control kills enemies and accomplishes objectives, you will be rewarded with Experience (XP.	你控制的每支小隊擊殺敵人並完成目標時，都會獲得經驗值（XP）。	2026-05-17 14:19 JST main chat tutorial polish
+all	9061677	Click on the supply wargear (any mouse button) to pick it up. All squads will receive more uses of their limited abilities, like Grenades or Medpacks.	點擊補給戰爭裝備（任意滑鼠鍵）即可拾取。所有小隊都會獲得更多有限次數能力的使用次數，例如手雷或急救包。	2026-05-17 14:19 JST main chat tutorial polish
+all	9066820	Your strike force can deliver a killing blow while it feeds.	你的打擊部隊可以趁它進食時給予致命一擊。	2026-05-17 14:19 JST main chat campaign prose polish
+all	9066870	In order to recover any data on the Hive Fleet, you will need to align the array from the ground, Commander. 	指揮官，為了回收蟲巢艦隊的資料，你必須在地面校準陣列。	2026-05-17 14:19 JST main chat campaign prose polish
