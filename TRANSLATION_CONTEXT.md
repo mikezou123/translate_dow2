@@ -119,6 +119,10 @@ Tranthios III = 特蘭西奧斯三號
 Alpha Legion = 阿爾法軍團
 Razorback = 剃刀背運兵車
 Rhino = 犀牛運兵車
+Predator = 掠食者 / 掠食者坦克
+Warhammer 40,000: Dawn of War II = 戰鎚 40,000：戰爭黎明 II
+Chaos Rising = 混沌崛起
+Retribution = 懲罰
 Rippa-Splitta = 殘虐裂手
 Gorwazza = 戈瓦札
 Blitzzagga = 布利札嘎
@@ -192,6 +196,22 @@ Scan for and replace these old or incorrect forms:
 毆克蠻人
 裘納
 暗黑色軍團
+破曉之戰
+混沌再起
+掠奪者坦克
+捕食者坦克
+塔克斯
+戴維恩
+黎斯魯曼
+荷瑪岡特
+泰瑪岡特
+火焰槍
+惡魔王子
+異端審判庭
+老大頭領
+胞子囊包
+塔庫斯中位
+星際終結者
 次元蜘蛛
 狂嚎女妖
 火箭發射器
@@ -271,6 +291,34 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 16:45-17:05 JST
+
+Main-chat translation cleanup rebuilt both games successfully. This pass added
+script-level final replacements and validation coverage for vehicle terminology,
+character names, UI title consistency, unlock requirement text, Tyranid/Ork unit
+phrasing, and several obvious typo/grammar defects.
+
+Key terminology and wording updates: `Predator -> 掠食者 / 掠食者坦克`,
+`Tarkus -> 塔庫斯`, `Davian -> 戴維安`, `Leman Russ -> 黎曼魯斯`,
+`Flamer -> 火焰噴射器`, `Daemon Prince -> 惡魔親王`,
+`Dawn of War II -> 戰爭黎明 II`, `Chaos Rising -> 混沌崛起`,
+`Nob Leader -> 老大頭目`, `Mycetic Spore -> 菌囊孢子`, and
+`Mycetic Mine -> 菌囊地雷`. Also cleaned old/malformed strings including
+`捕食者坦克`, `掠奪者坦克`, `塔庫斯中位`, `星際終結者`,
+`胞子囊包`, `作業系統t`, `遭遇站`, and repeated Chinese question marks.
+
+The final build command completed successfully and regenerated:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Verification: stable line counts, dow2 50695 and retribution 71720; Unicode
+replacement characters 0; WAAAGH bad-form hits 0; generic `哇啊啊` hits 0;
+expanded old-term scan returned 0 hits. The only remaining ASCII `??` instances
+are the two original placeholder rows in each output (`511755`, `607755`).
 
 ### 2026-05-17 Razorback / Rhino Check
 
