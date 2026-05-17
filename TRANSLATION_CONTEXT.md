@@ -334,6 +334,10 @@ in item lore, `黑色聖堂`, `死亡守望`, `星界軍`, `基因竊取者`, `�
 weapon-pattern names as readable Traditional Chinese while retaining model
 marks such as `Mk V`, `Mk X`, and `M35`.
 
+Follow-up in the same pass cleared the remaining visible `阿斯塔特MK*`,
+`MKVII/MKVIII`, `迷途類型`, `厚鈦板`, and `電力光纖束` scan hits to 0 in current
+outputs.
+
 ### 2026-05-17 18:34-19:10 JST
 
 Main chat active translation pass continued Retribution residual-English
