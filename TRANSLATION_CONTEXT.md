@@ -56,7 +56,8 @@ I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2
   cultural/psychic concept. Do not translate it as the generic cry `哇啊啊`.
   Use `WAAAGH！` for standalone shouts, and `WAAAGH` without punctuation in
   compounds such as `WAAAGH 能量`, `WAAAGH 戰旗`, `WAAAGH 點數`, and
-  `WAAAGH 技能`.
+  `WAAAGH 技能`. Keep a space before and after `WAAAGH` when it appears inside
+  Chinese prose, unless adjacent to punctuation.
 - Encoding safety rule: do not pass Traditional Chinese translation literals
   through a PowerShell here-string or pipeline into Python. The console code
   page can replace unsupported characters with literal `?` before Python sees
@@ -293,6 +294,12 @@ Verification at 14:00 JST: line counts remained stable, dow2 50695 and
 retribution 71720. `rg` scan against the expanded old-term list returned no
 hits. Encoding scan found U+FFFD 0 and WAAAGH? 0 in both outputs; the only
 `??` matches are the known original placeholder rows.
+
+Follow-up before closing this run added rule-level WAAAGH spacing and
+punctuation normalization to `FINAL_REPLACEMENTS`, covering old forms such as
+`WAAAGH!`, `獸人WAAAGH`, `消耗WAAAGH`, `引導WAAAGH`, and
+`困在WAAAGH中`. The build script also now normalizes ASCII `!` to full-width
+`！` when the mark is adjacent to Chinese text.
 
 ### 2026-05-17 13:13-13:28 JST
 

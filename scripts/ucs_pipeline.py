@@ -91,6 +91,17 @@ FINAL_REPLACEMENTS = (
     ("阿斯塔特阿斯塔特", "阿斯塔特"),
     ("WAAAGH！點數", "WAAAGH 點數"),
     ("WAAAGH！的", "WAAAGH 的"),
+    ("WAAAGH!", "WAAAGH！"),
+    ("WAAAGH不足", "WAAAGH 不足"),
+    ("獸人WAAAGH", "獸人 WAAAGH"),
+    ("獲得WAAAGH", "獲得 WAAAGH"),
+    ("使用WAAAGH", "使用 WAAAGH"),
+    ("釋放WAAAGH", "釋放 WAAAGH"),
+    ("引導WAAAGH", "引導 WAAAGH"),
+    ("消耗WAAAGH", "消耗 WAAAGH"),
+    ("強大的WAAAGH", "強大的 WAAAGH"),
+    ("困在WAAAGH中", "困在 WAAAGH 中"),
+    ("WAAAGH震撼", "WAAAGH 震撼"),
     ("黑暗神靈", "黑暗靈族"),
     ("神靈先知", "靈族先知"),
     ("神靈哈維坦克", "異族浮空坦克"),
@@ -448,6 +459,8 @@ def apply_final_replacements(text: str) -> str:
     result = text
     for old, new in FINAL_REPLACEMENTS:
         result = result.replace(old, new)
+    result = re.sub(r"(?<=[\u4e00-\u9fff])!", "！", result)
+    result = re.sub(r"!(?=[\u4e00-\u9fff])", "！", result)
     return result
 
 
