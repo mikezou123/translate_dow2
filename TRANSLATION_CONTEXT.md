@@ -191,6 +191,32 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 11:59 JST
+
+Main chat checked the current automation-updated
+`I:\translate_process\translation_project\work\manual_overrides.tsv` and rebuilt
+both UCS outputs. The TSV has 68943 rows with the expected columns
+`game_key`, `id`, `en`, `zh_new`, and `notes`; `zh_new` has 0 empty values.
+The 299 non-numeric `id` rows are expected `game_key=all` source-text override
+rows rather than corruption. Structured TSV checks found 0 old problem term
+hits, 0 `WAAAGH` rule violations, and 0 CJK rows containing suspicious literal
+`?` corruption.
+
+The main chat build command succeeded and wrote:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Output verification after rebuild: dow2 50695 lines, retribution 71720 lines.
+Old problem term scan returned 0 hits for both games. Residual
+same-as-English/ascii counts are dow2 80 and retribution 104; contains-ascii
+counts are dow2 1114 and retribution 1348. A CJK-plus-ASCII-question-mark scan
+reported 17 dow2 rows and 8 retribution rows; sampled hits were normal question
+punctuation or explicit `?` UI marker text, not the earlier PowerShell encoding
+replacement issue.
+
 ### 2026-05-17 11:54 JST
 
 Workspace automation run started after reading this context and
