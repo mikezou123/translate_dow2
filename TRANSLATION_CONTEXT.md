@@ -316,6 +316,24 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 19:53-20:04 JST
+
+Main chat short active translation pass focused on repeated DOW2/Retribution
+equipment tooltip cleanup in `scripts/ucs_pipeline.py`, then rebuilt both UCS
+outputs after each batch. Scope: Mk VII/Mk VIII armor naming and descriptions,
+Arbites Pattern III `Lawbringer` combat shotgun text, Astartes issue labels,
+EMP/drone and retreat wording, DOW2 Space Marine weapon tooltip phrasing
+(`Magnacore`, Mk V missile launcher, Mk IIs sniper rifle, Mk III sidearm,
+Godwyn bolter, Mk X/Mk XI-c `Hell's Teeth` chainsword), and lore typo fixes
+for Black Templars, Rogal Dorn, Tarsis Ultra, Deathwatch, Genestealer, and
+Imperial Guard -> Astra Militarum wording.
+
+Added stable terminology direction for visible equipment strings: use `Mk`
+spacing consistently, `Mk VIII 游俠型`, `Mk VII 天鷹型`, `動力甲` for power armor
+in item lore, `黑色聖堂`, `死亡守望`, `星界軍`, `基因竊取者`, `羅格·多恩`, and keep
+weapon-pattern names as readable Traditional Chinese while retaining model
+marks such as `Mk V`, `Mk X`, and `M35`.
+
 ### 2026-05-17 18:34-19:10 JST
 
 Main chat active translation pass continued Retribution residual-English
