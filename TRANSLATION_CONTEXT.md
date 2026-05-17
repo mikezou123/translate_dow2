@@ -316,7 +316,7 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
-### 2026-05-17 18:34-19:07 JST
+### 2026-05-17 18:34-19:10 JST
 
 Main chat active translation pass continued Retribution residual-English
 cleanup while keeping output Traditional Chinese and mainland 40K terminology.
@@ -350,6 +350,13 @@ for `WAAAGH?`, `Waaagh`, `哇啊啊`, `獸人的WAAAGH`, `WAAAGH建築`,
 `見識WAAAGH`, and `加入俺的WAAAGH`. Residual-English candidate scan still
 has many rows remaining in Retribution, but this pass removed a large
 contiguous block of battle VO and map-script English entries.
+
+Follow-up before closing the same main-chat pass added another compact batch of
+Eldar/Warlock/Banshee/Space Marine lines around IDs 9035350-9035470, including
+Webway/shield calls, anti-Ork/anti-Tyranid map barks, allied commander callouts,
+and drop-pod/refractor/teleport ability voice lines. Final quick validation
+again kept dow2 50695 lines, retribution 71720 lines, U+FFFD 0, old-problem
+scan 0, and WAAAGH bad-form scan 0.
 
 ### 2026-05-17 17:47-18:00 JST
 
