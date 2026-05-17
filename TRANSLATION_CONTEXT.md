@@ -316,6 +316,40 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 17:47-18:00 JST
+
+Main chat active cleanup run. The pass continued using durable final
+replacements in `scripts/ucs_pipeline.py`, because the remaining issues were
+mostly repeated legacy phrases and malformed output text rather than isolated
+manual override rows.
+
+Main cleanup groups: DOW2/Retribution psychic wording (`靈能族敵軍`,
+`靈能能量`, Warlock chain/psychic attack phrasing), Chaos campaign title text
+(`尊爵` -> `升格者` / `升格之主` for Kyras' Ascendant title), UI and
+mainland-style wording (`檢視` -> `查看`, `資訊` -> `信息`, `螢幕` ->
+`屏幕`), Librarian terminology (`智庫館長` -> context-appropriate `智庫` or
+`智庫館守護者`), Valkyrie/Imperial Guard/Tyranid bad backfills
+(`瓦凱莉斯`, `星界軍騎兵`, `異形兵蟲`), damage/stat grammar
+(`傷害至`, `裝甲等級至`, `反射所有傷害至攻擊者`), and character-name
+normalization (`約拿`, `歐里恩`, `亞撒利雅`, `歐瑞安`,
+`伊佳尼爾`).
+
+Added targeted ID replacements for DOW2/Retribution lines where later source
+backfills reintroduced malformed text, including Diomedes honor-guard lore
+9132540 and Jonah Orion corruption relic lines 9133435, 9133439, and 9133444.
+
+The build command succeeded and overwrote both UCS outputs:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Verification after rebuild: dow2 50695 lines, retribution 71720 lines, U+FFFD
+0 for both outputs, suspicious `WAAAGH?` 0, known old-problem scan 0 hits. The
+two `???` placeholder entries in each output remain unchanged legacy UI
+placeholders rather than encoding loss.
+
 ### 2026-05-17 17:11-17:42 JST
 
 Main chat active translation run. Work moved from row-by-row manual overrides
