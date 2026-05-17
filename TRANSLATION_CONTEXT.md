@@ -149,6 +149,13 @@ Looted Tank = 掠奪坦克
 Ravener Alpha = 掘蟒蟲首領
 Lictor Alpha = 利卡特首領
 Synapse = 突觸
+Bio-toxin = 生物毒素
+Biomorph = 生體變異
+Hive Fleet Leviathan = 利維坦蟲巢艦隊
+Hive Fleet Behemoth = 貝希摩斯蟲巢艦隊
+Hive Fleet Kraken = 克拉肯蟲巢艦隊
+Tarsis Ultra = 塔西斯·奧特拉
+Ultramar = 奧特拉瑪
 T'au / Tau castes = 鈦族，火氏族，土氏族，水氏族，以太氏族
 Avatar of Khaine = 凱恩化身
 Chaos Havocs = 混沌浩劫小隊
@@ -315,6 +322,31 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 22:58-23:38 JST
+
+Main chat 40-minute active translation pass continued in
+`scripts/ucs_pipeline.py` and rebuilt both UCS outputs after each small batch.
+Scope: Blood Angels/Black Rage/Crimson Fists/Deathwing/Iron Warriors naming,
+Army Painter and DLC copy, Mekboy/Big Mek wording, Plasma Gun entries, remaining
+Retribution Last Stand residual-English equipment/trait strings, Thule/Angelos/
+Kronus campaign wording, DOW2 Thule cure campaign alignment, and a large DOW2
+Tyranid cleanup pass.
+
+Important terminology stabilized this run: `Tyranids = 泰倫蟲族`, `Synapse =
+突觸`, `Bio-toxin = 生物毒素`, `Biomorph = 生體變異`, `Hive Fleet Leviathan =
+利維坦蟲巢艦隊`, `Hive Fleet Behemoth = 貝希摩斯蟲巢艦隊`, and branch fleets as
+`分支艦隊`. Kept Ordo Xenos / generic xenos contexts as `異形` or `異族`, so
+`異形` was not globally replaced.
+
+Final small pass also aligned `Tarsis Ultra = 塔西斯·奧特拉`, `Ultramar =
+奧特拉瑪`, Behemoth tendril names, and `Barding of Ultramar = 奧特拉瑪甲胄`.
+
+Validation after final rebuild: dow2 50695 lines, retribution 71720 lines.
+Old problem term scan returned 0 hits, Tyranid/Synapse/Biomorph English-residue
+scan returned 0 hits, and WAAAGH bad-form scan returned 0 hits. Encoding scan
+found no replacement-character hits; the only `???` lines remain the existing
+placeholder IDs 511755 and 607755 in both outputs.
 
 ### 2026-05-17 22:17-22:57 JST
 
