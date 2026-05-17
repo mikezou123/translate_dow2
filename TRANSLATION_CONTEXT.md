@@ -191,6 +191,291 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 11:54 JST
+
+Workspace automation run started after reading this context and
+`AUTOMATION_TASK.md`, then continued with active translation, source validation,
+duplicate audits, projected-output scans, and repeated build verification until
+approximately 11:54 JST. The run appended 294 current-run rows to
+`I:\translate_process\translation_project\work\manual_overrides.tsv`.
+
+The translated groups were DOW2 Tyranid/alien/xenos terminology cleanup across
+campaign dialogue, objectives, infestation/tutorial text, synapse descriptions,
+capillary tower abilities, and endgame/campaign-system strings; DOW2 Ork
+booby-trap and late Tyranid campaign cleanup; and Retribution early Ork/Feral
+Ork tutorial, objective, wargear, and voice text cleanup. The run used
+source-bound append-only supersession rows so newer exact-source entries beat
+older direct or source override text.
+
+Current-run structured validation found 0 source mismatches across the 294
+rows: 238 DOW2 rows and 56 Retribution rows. `zh_new` corruption scans found 0
+literal `?`, 0 repeated `??`, 0 `WAAAGH?`, 0 Unicode replacement characters,
+0 known mojibake patterns, and 0 generic `哇啊啊` WAAAGH translations.
+Current-run duplicate-key audit found 0 duplicate `game_key`/`id` keys. The
+duplicate-source audit found 7 repeated current-run source texts, all expected
+repeated labels or duplicate tooltip strings such as Ork Booby Trap, Tyranids
+in Synapse, and repeated capillary tower descriptions.
+
+The required UCS build was attempted after the first translation batch, again
+after the Retribution cleanup batch, and again during final verification. Every
+attempt failed before writing outputs with `PermissionError: [Errno 13]
+Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+The output UCS files were therefore not updated during this run; the updated
+manual override table remains the useful output.
+
+Current on-disk output counts remained stable: dow2 50695 lines, retribution
+71720 lines. A no-write projected build using the updated manual override table
+also produced stable counts: dow2 50695 and retribution 71720. Projected
+same-as-English/ascii counts remained dow2 80 and retribution 104; projected
+contains-ascii counts remained dow2 1114 and retribution 1348. Projected old
+problem term scan from the required context list found 0 hits for both games,
+and projected WAAAGH bad-form scan found 0 hits for both games. A broader
+contextual Ork/Tyranid/alien worklist scan still found DOW2 542 and
+Retribution 218 rows, mostly remaining Feral Ork/Ork and Tyranid cleanup
+candidates outside this run's completed batches.
+
+No live `python.exe` processes were reported by the final process check. Plain
+`git status` failed under the sandbox user because Git detected dubious
+ownership for `I:\GitHub\translate_dow2`; running Git with
+`-c safe.directory=I:/GitHub/translate_dow2` showed branch `main` and
+`TRANSLATION_CONTEXT.md` modified before this entry. Commit/push was attempted
+after this entry.
+
+### 2026-05-17 10:55 JST
+
+Workspace automation run started at approximately 10:38 JST and continued with
+active shared UI cleanup, DOW2/Retribution glossary supersession, source
+validation, duplicate audits, projected-build checks, output scans, and build
+verification until approximately 10:55 JST. The run appended 373 current-run
+rows to
+`I:\translate_process\translation_project\work\manual_overrides.tsv`.
+
+The translated groups were shared multiplayer/social UI strings for leaving,
+joining, invitations, friend/ignore lists, matchmaking, chat whispers, map
+changes, ranking prompts, and visible campaign/status strings; DOW2 targeted
+glossary cleanup for Greenskin/Ork, Carnifex, Mekboy, Heavy Flamer, Librarian,
+and Lascannon/Tarantula turret strings; and Retribution targeted glossary
+cleanup for Mekboy, Carnifex, Librarian/Jonah Orion, Greenskin voice barks,
+Lascannon/Tarantula turret labels and descriptions, and flamer tutorial text.
+The run used append-only supersession rows so newer source-matched terminology
+beats older direct or source override text.
+
+Current-run structured validation found 0 source mismatches across the 373
+rows. Placeholder validation found 0 mismatches. `zh_new` corruption scans
+found 0 literal `?`, 0 repeated `??`, 0 `WAAAGH?`, 0 Unicode replacement
+characters, and 0 generic `哇啊啊` WAAAGH translations in current-run rows.
+Current-run duplicate audit found 0 duplicate `game_key`/`id` keys; 64 duplicate
+current-run source texts were expected repeated labels or cross-game voice/UI
+strings.
+
+The required UCS build was attempted after the first batch, after follow-up
+translation batches, and again during final verification. Every attempt failed
+before writing outputs with `PermissionError: [Errno 13] Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+The output UCS files were therefore not updated during this run.
+
+Current on-disk output counts remained stable: dow2 50695 lines, retribution
+71720 lines. Current on-disk old problem term scan from this context found 0
+hits for both games. A no-write projected build using the updated manual
+override table produced stable counts dow2 50695 and retribution 71720.
+Projected same-as-English/ascii counts were dow2 80 and retribution 104;
+projected contains-ascii counts were dow2 1114 and retribution 1348. The
+projected targeted glossary scan for Ork/Greenskin, Carnifex, Mekboy,
+Librarian, Flamer, and Lascannon now shows DOW2 2 rows and Retribution 222 rows
+remaining after this run's supersession batches. Projected context old-term
+scan showed DOW2 735 rows and retribution 0 rows; the DOW2 number remains a
+broad projected-worklist measure rather than an on-disk output regression.
+
+No live `python` processes were reported by the final process check. Repository
+status still showed only `TRANSLATION_CONTEXT.md` modified before this entry.
+Commit/push was attempted after this entry, but Git failed to create
+`.git/index.lock` due to permission denial, so push was not attempted. The
+primary useful output of the run is the updated `manual_overrides.tsv` outside
+the repository; the latest override table can be used for a manual UCS rebuild
+from the main chat.
+
+### 2026-05-17 10:04 JST
+
+Workspace automation run started at approximately 09:38 JST and continued with
+active shared voice translation, DOW2/Retribution glossary supersession,
+projected-build checks, source validation, duplicate audits, output scans, and
+git/process verification until approximately 10:04 JST. The run appended 556
+current-run rows to
+`I:\translate_process\translation_project\work\manual_overrides.tsv`.
+
+The translated groups were shared Space Marine combat/selection barks around
+9028539-9034067, DOW2 Flamer/Ork/Eldar/Carnifex/Librarian terminology cleanup,
+DOW2 flamer equipment and tutorial strings, DOW2 Carnifex objective and wargear
+labels, Retribution direct supersession rows for Ork/Greenskin mission barks,
+Retribution flamer/Sentinel equipment lines, and Retribution Carnifex/Librarian
+campaign text. The run used append-only duplicate supersession rows where older
+direct overrides would otherwise beat newer source-matched terminology. A
+Python in-place rewrite attempt for broad existing override normalization failed
+with `PermissionError` on `manual_overrides.tsv`, so the run used `apply_patch`
+append supersession rows instead.
+
+Current-run structured source validation found 0 source mismatches across the
+556 rows. `zh_new` corruption scans found 0 literal `?`, 0 repeated `??`, 0
+`WAAAGH?`, and 0 known WAAAGH mojibake hits. Current-run duplicate audit found
+0 duplicate current-run `game_key`/`id` keys; 27 duplicate current-run source
+texts were deliberate repeated barks or labels.
+
+The required UCS build was attempted after each translation batch and again
+during final verification. Every attempt failed before writing outputs with
+`PermissionError: [Errno 13] Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+The output UCS files were therefore not updated during this run.
+
+Current on-disk output counts remained stable: dow2 50695 lines, retribution
+71720 lines. Current on-disk old problem term scan from this context found 0
+hits for both games. Current on-disk bad WAAAGH scan found 0 hits for both
+games. Current on-disk ascii-only-with-letters counts were dow2 264 and
+retribution 287; contains-ascii counts were dow2 1156 and retribution 1399.
+
+A no-write projected build using the updated manual override table produced
+stable counts dow2 50695 and retribution 71720. Projected same-as-English/ascii
+counts were dow2 164 and retribution 191; projected contains-ascii counts were
+dow2 1034 and retribution 1244. The filtered context old-term scan showed
+projected retribution 0 rows and DOW2 727 rows. A narrower targeted glossary
+scan for Orks/Ork, Carnifex, Zoanthrope, Librarian, Flamer, and Eldar showed
+projected DOW2 42 hits and retribution 225 hits after this run's supersession
+batches. Projected WAAAGH bad-form scan found 0 hits.
+
+No live `python` processes were reported by the final process check. Repository
+status still showed only `TRANSLATION_CONTEXT.md` modified before this entry.
+Commit was attempted after this entry, but Git failed to create
+`.git/index.lock` due to permission denial, so push was not attempted. The
+context update remains uncommitted in the working tree, and the primary useful
+output of the run remains the updated `manual_overrides.tsv` outside the
+repository.
+
+### 2026-05-17 08:58 JST
+
+Workspace automation run started at approximately 08:40 JST and continued with
+active WAAAGH terminology cleanup, DOW2 old-term translation batches,
+source-validation checks, projected-build checks, output scans, and git/process
+verification until approximately 08:58 JST. The run appended 145 current-run
+rows to
+`I:\translate_process\translation_project\work\manual_overrides.tsv`.
+
+The translated groups were Retribution WAAAGH compound punctuation cleanup for
+banner, meter, points, ability, and cultural-concept lines; DOW2 Dreadnought,
+plasma, Zoanthrope, missile launcher, Cyrus/Armageddon, Hive Tyrant, Warlock,
+and Dark Gods terminology cleanup. Current-run structured source validation
+found 0 source mismatches across the 145 rows. `zh_new` corruption scans found
+0 literal `?`, 0 repeated `??`, 0 `WAAAGH?`, and 0 known WAAAGH mojibake hits.
+Projected WAAAGH compound punctuation checks found 0 remaining `WAAAGH！ `
+compound hits for both games.
+
+The required UCS build was attempted after the WAAAGH batch, after the DOW2
+old-term batch, after the Cyrus/missile batches, and again during final
+verification. Every attempt failed before writing outputs with
+`PermissionError: [Errno 13] Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+The output UCS files were therefore not updated during this run.
+
+Current on-disk output counts remained stable: dow2 50695 lines, retribution
+71720 lines. Current on-disk old problem term scan remained 0 for both games.
+Current on-disk same-as-English/ascii counts were dow2 145 and retribution 168.
+A no-write projected build using the updated manual override table produced
+stable counts dow2 50695 and retribution 71720, projected WAAAGH compound or
+question-mark hits 0 for both games, projected generic `哇啊啊` WAAAGH
+translation hits 0 for both games, projected same-as-English/ascii counts dow2
+89 and retribution 114, and projected contains-ascii counts dow2 1115 and
+retribution 1348. The projected old-term scan now shows retribution 0 rows and
+DOW2 730 rows, reduced by this run's DOW2 terminology batches.
+
+Final process inspection found one `python` process using the Codex runtime
+interpreter, but querying its command line with `Get-CimInstance` was denied by
+the environment, so it was not identified as a stale `ucs_pipeline.py` child and
+was not stopped. Repository commit was attempted after this entry, but Git
+failed to create `.git/index.lock` due to permission denial, so push was not
+attempted. The context update remains uncommitted in the working tree, and this
+run's primary useful output remains the updated `manual_overrides.tsv` outside
+the repository.
+
+### 2026-05-17 07:58 JST
+
+Workspace automation run started at approximately 07:38 JST and continued with
+active translation, source validation, projected-build checks, output write
+probes, residual-English triage, duplicate audits, and old-term scans until
+approximately 07:58 JST. The run appended 217 current-run rows to
+`I:\translate_process\translation_project\work\manual_overrides.tsv`.
+
+The translated groups were shared chat and lobby labels, multiplayer
+`Label_Value` cleanup, shared numeric/unit UI strings, installer UI strings,
+Tyranid terminology, shared unit labels around 9120325-9120363, DOW2
+campaign/old-term cleanup for Armageddon/Dreadnought/plasma/missile/Cyrus
+strings, and repeated exact-source cleanup for DOW2/Retribution labels and
+descriptions involving Cyrus, Jonah, Wraithlord, Wraithguard, Warlock, Black
+Legion, Dark Gods/Lord of Decay, Dreadnought, missile, plasma, Hive Tyrant, and
+Zoanthrope terminology. Current-run structured source validation found 0 source
+mismatches after corrections. `zh_new` corruption scans found 0 literal `?`, 0
+repeated `??`, 0 `WAAAGH?`, 0 lowercase `Waaagh`, and 0 generic `哇啊啊` hits.
+The manual override old-term scan found 0 hits after correcting an existing
+`igguy` row from `帝國衛兵` to `星界軍士兵` and the new shared Dreadnought row
+from `無畏機兵` to `無畏機甲`.
+
+The required UCS build was attempted repeatedly after translation batches and
+again during final verification. Every attempt failed before writing outputs
+with `PermissionError: [Errno 13] Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+A direct read/write probe also failed for both current output UCS files with
+`PermissionError`, so the output UCS files were not updated during this run.
+There were no stale `python`/`ucs_pipeline.py` child processes found.
+
+Current on-disk output counts remained stable: dow2 50695 lines, retribution
+71720 lines. Current on-disk old problem term scan remained 0 for both games.
+A no-write projected build using the updated manual override table produced the
+stable counts dow2 50695 and retribution 71720, projected old problem term hits
+0 for both games, projected same-as-English/ascii counts dow2 80 and
+retribution 104, and projected contains-ascii counts dow2 1102 and retribution
+1344. The remaining projected same-as-English/ascii rows are mostly UI/control
+tokens, test strings, URLs, hardware labels, or deliberate code-like strings.
+Duplicate key audit still found 824 duplicate `game_key`/`id` keys overall;
+none of this run's current-run rows were on duplicate keys. Repository commit
+was attempted after this entry, but Git again failed to create
+`.git/index.lock` due to permission denial, so push was not attempted. The
+context update remains uncommitted in the working tree.
+
+### 2026-05-17 06:45 JST
+
+Workspace automation run started at approximately 06:19 JST and continued with
+active translation, validation, projected-build checks, duplicate audits, and
+terminology scans until 06:45 JST. The run appended 212 new rows to
+`I:\translate_process\translation_project\work\manual_overrides.tsv`.
+
+The translated groups were shared Space Marine movement/combat barks, DOW2
+Predator/Razorback/Rhino/Land Raider vehicle lines, Retribution short Ork and
+Space Marine transport lines around IDs 9026216-9032808, subtitle cue labels
+around 9090476-9119812, and shared UI/multiplayer placeholder cleanup around
+10250, 38070-43450, and 146709-146749. Structured checks found 0 source
+mismatches for the new rows, 0 placeholder mismatches in the UI batch, and 0
+`?`, repeated `??`, `WAAAGH?`, `Waaagh`, or `蜩・賦蝠柿` corruption hits in
+`zh_new`.
+
+The required UCS build was attempted after translation batches, but both
+attempts failed before writing outputs with `PermissionError: [Errno 13]
+Permission denied:
+'I:\\translate_process\\translation_project\\output\\dow2\\Locale\\TChinese\\DOW2.ucs'`.
+The output UCS files were therefore not updated during this run. Current
+on-disk output counts remained stable: dow2 50695 lines, retribution 71720
+lines. Current on-disk old problem term scan remained 0 for both games.
+
+A no-write projected build using the updated manual override table produced the
+stable counts dow2 50695 and retribution 71720, projected old problem term hits
+0 for both games, projected same-as-English/ascii counts dow2 191 and
+retribution 216, projected contains-ascii counts dow2 1412 and retribution
+1839, and projected strong same-as-English/ascii residuals dow2 2 and
+retribution 10 under the current triage heuristic. The strong missing-English
+work-file scan returned 0 remaining strong candidates for both games after the
+new overrides. Duplicate override audit still found 823 pre-existing duplicate
+`game_key`/`id` keys; none were introduced by this run's appended rows.
+Repository commit was attempted after this entry, but Git again failed to create
+`.git/index.lock` due to permission denial, so push was not attempted.
+`manual_overrides.tsv` remains the primary useful output outside the repo.
+
 ### 2026-05-17 06:09 JST
 
 Main chat follow-up added the confirmed Ork `Waaagh` / `WAAAGH` terminology
