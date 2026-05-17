@@ -316,6 +316,41 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-17 18:34-19:07 JST
+
+Main chat active translation pass continued Retribution residual-English
+cleanup while keeping output Traditional Chinese and mainland 40K terminology.
+The pass primarily edited `scripts/ucs_pipeline.py` with durable phrase-level
+final replacements, then rebuilt both game outputs after each batch.
+
+Main cleanup groups: Imperial Guard and Scout combat barks, Tactical/Assault/
+Devastator/Terminator/vehicle Space Marine voice variants, Predator/Rhino/
+Razorback/Land Raider status lines, Eldar Guardian/Fire Prism/Banshee/Ranger/
+Warp Spider/Farseer/Warlock/Wraithlord/Avatar lines, Ork Brakka/Nailbrain/
+Sliksnik voice barks, map-specific Eldar/Ork encounter callouts, capture/
+resource/victory-point system messages, allied hero incapacitated notices, and
+many punctuation/case variants that previously remained same-as-English.
+
+Terminology details kept in this pass: `星界軍`, `星際戰士`, `靈族`, `獸人`,
+`泰倫蟲族`, `躍遷蜘蛛`, `幽冥骨`, `網道`, `方舟世界`, `火棱鏡`, `剃刀背`,
+`蘭德掠襲者`, `終結者`, `WAAAGH`, `釘腦先生`, `司立克尼克`, and `布拉卡`.
+The pass also corrected a lingering Retribution manual override for ID 9088769
+from `有些小子想加入俺的哇啊！` to `有些小子想加入俺的 WAAAGH！`.
+
+The build command succeeded and overwrote both UCS outputs:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Verification after rebuild: dow2 50695 lines, retribution 71720 lines, U+FFFD
+0, known old-problem scan 0 hits, case-sensitive WAAAGH bad-form scan 0 hits
+for `WAAAGH?`, `Waaagh`, `哇啊啊`, `獸人的WAAAGH`, `WAAAGH建築`,
+`見識WAAAGH`, and `加入俺的WAAAGH`. Residual-English candidate scan still
+has many rows remaining in Retribution, but this pass removed a large
+contiguous block of battle VO and map-script English entries.
+
 ### 2026-05-17 17:47-18:00 JST
 
 Main chat active cleanup run. The pass continued using durable final
