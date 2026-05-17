@@ -156,6 +156,15 @@ Plague Champion = 疫病冠軍
 Aspiring Champion = 野心冠軍
 Azariah Kyras = 阿扎賴亞·凱拉斯
 Priam = 普里阿姆
+Cyrene = 昔蘭尼
+Commissar = 政委
+Tarantula turret = 狼蛛炮塔
+Space Hulk = 太空廢船
+Judgment of Carrion = 腐屍審判號
+Teleportarium = 傳送室
+Capillary Tower = 毛細塔
+biomass = 生物質
+psychic power / spell = 靈能力；混沌巫術語境可用咒法/亞空間巫術
 ```
 
 ## Old Terms To Avoid
@@ -218,6 +227,21 @@ Scan for and replace these old or incorrect forms:
 雷射砲
 等離子大砲
 動力盔甲
+偵察兵盔甲
+預設的盔甲
+較輕的盔甲
+魔法
+法術
+生體物質
+威脅度
+腐屍審判。
+塔蘭圖拉
+政戰委員
+政戰軍委員
+塞立尼
+賽琳
+運載工具
+太空船
 喬納‧歐里恩
 克諾努斯
 馬蒂亞斯港
@@ -291,6 +315,36 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 17:11-17:42 JST
+
+Main chat active translation run. Work moved from row-by-row manual overrides
+to durable final-replacement cleanup in `scripts/ucs_pipeline.py`, because the
+remaining visible issues were repeated old TChinese phrases across both DOW2
+and Retribution outputs. The run kept output in Traditional Chinese while using
+mainland Warhammer 40K terminology.
+
+Main cleanup groups: UI mainland wording (`點擊`, `鼠標`, `顯卡`, `局域網`,
+`互聯網`, `補丁`, `個人檔案`), damage/vehicle phrasing (`傷害`, `受損`,
+`載具`, `部署`), Cyrene / Inquisition lore (`昔蘭尼`, `審判官`,
+`黑暗天使`, `大導師阿茲瑞爾`, `秘密之劍`), Retribution campaign terms
+(`腐屍審判號`, `太空廢船`, `傳送室`, `政委`, `狼蛛炮塔`), Guard wording
+(`星界軍士兵`, `星界軍步兵小隊`), Tyranid biomass/capillary-tower text
+(`生物質`, `攝取生物質`, `毛細塔`), and psychic/sorcery wording
+(`靈能力`, `咒法`, `亞空間巫術`) where the old text used generic
+`魔法`/`法術`.
+
+The build command succeeded repeatedly from the main chat and overwrote both
+UCS outputs:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Follow-up verification should continue to scan the expanded old-term list,
+encoding safety (`U+FFFD`, suspicious `?`, WAAAGH corruption), output line
+counts, and git status before each closeout.
 
 ### 2026-05-17 16:45-17:05 JST
 
