@@ -97,6 +97,14 @@ missile launcher = 導彈發射器
 lascannon = 激光炮
 plasma cannon = 等離子炮
 power armour = 動力裝甲
+Thaddeus = 撒迪厄斯
+Kronus = 克羅努斯
+Port Matthias = 馬提亞斯港
+Armageddon = 阿米吉多頓
+bolter = 爆彈槍
+storm bolter = 風暴爆彈槍
+heavy bolter = 重型爆彈槍
+Eldritch Bolt = 靈能箭
 ```
 
 ## Old Terms To Avoid
@@ -143,6 +151,14 @@ Scan for and replace these old or incorrect forms:
 雷射砲
 等離子大砲
 動力盔甲
+喬納‧歐里恩
+克諾努斯
+馬蒂亞斯港
+突進跳躍
+加乘
+參予
+強軔
+機關槍
 ```
 
 `異形` and `異星人` should usually become `異族`; in Tyranid-specific context
@@ -190,6 +206,38 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 12:20-13:00 JST
+
+Main chat continued the manual translation pass after the user deleted the
+scheduled automation. Work started at 12:20:26 JST and continued through the
+main-chat batch loop. The run updated
+`I:\translate_process\translation_project\work\manual_overrides.tsv` to 67250
+rows and rebuilt both UCS outputs successfully.
+
+Main translation cleanup covered WAAAGH mechanics/dialogue, Tyranid readable
+lines, Armageddon ship references, Eldar and xenos wording, visible question
+mark punctuation, Jonah Orion/Thaddeus/Kronus/Port Matthias consistency,
+Armageddon War wording, Imperial Guard wording, `bolter`/`heavy bolter`
+misrendered as `機關槍`, and the Martellus/Tarkus heresy outcome lines around
+IDs 9133724 and 9133728. New work batch files were written under
+`I:\Github\translate_dow2\work_batches`, and `scripts\ucs_pipeline.py` gained
+additional final replacement rules for stable terminology normalization.
+
+The build command succeeded and wrote:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Verification after rebuild: dow2 50695 lines, retribution 71720 lines. The
+expanded old-problem scan returned 0 hits for both outputs, including
+`喬納‧歐里恩`, `克諾努斯`, `馬蒂亞斯港`, `突進跳躍`, `加乘`, `參予`, `強軔`,
+and `機關槍`. Encoding scan found 0 `U+FFFD`, 0 `WAAAGH?`, 0 bad WAAAGH point
+forms, and 0 `觸發?` artifacts. Remaining same-as-English ASCII hits are
+internal UI/test labels, placeholder voice tags, copyright text, or similar
+non-translation strings.
 
 ### 2026-05-17 11:59 JST
 
