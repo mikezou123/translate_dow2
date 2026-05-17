@@ -114,6 +114,29 @@ Gryphonne IV = 格里芬 IV
 Kiwon = 基旺
 Tranthios III = 特蘭西奧斯三號
 Alpha Legion = 阿爾法軍團
+Razorback = 剃刀背運兵車
+Rippa-Splitta = 殘虐裂手
+Gorwazza = 戈瓦札
+Blitzzagga = 布利札嘎
+Deff Driva = 死駕
+Hab Spire Legis = 萊吉斯居住尖塔
+Astronomic Array = 天文陣列
+Techpriest = 技術神甫
+Mek / Mekboy = 技霸 / 技霸小子
+Scout = 偵察兵
+Tyrant Guard = 暴君守衛
+Termagant = 槍蟲
+Hormagaunt = 刀蟲
+Carnifex = 卡尼菲克斯
+Webway Assembly = 網道樞紐
+Webway portal = 網道傳送門
+Fire Prism = 火棱坦克
+Avatar of Khaine = 凱恩化身
+Chaos Havocs = 混沌浩劫小隊
+Plague Champion = 疫病冠軍
+Aspiring Champion = 野心冠軍
+Azariah Kyras = 阿扎賴亞·凱拉斯
+Priam = 普里阿姆
 ```
 
 ## Old Terms To Avoid
@@ -233,6 +256,43 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 13:29-14:00 JST
+
+Main chat translation run. Started at 13:29:33 JST and continued active
+translation, rebuild, and verification work through 14:00 JST before final
+context/commit cleanup. The run updated `manual_overrides.tsv` through UTF-8
+batch imports and expanded `FINAL_REPLACEMENTS` in `scripts/ucs_pipeline.py`
+for high-confidence terminology normalization.
+
+Main areas covered:
+
+- DOW2 / Retribution Ork campaign terms: Rippa-Splitta, Gorwazza, Blitzzagga,
+  Deff Driva, Green Tooth Gorge, Mek / Mekboy.
+- Typhon Astronomic Array and Techpriest wording: `天文陣列`,
+  `技術神甫`, `技霸`, `殘虐裂手`.
+- Hab Spire Legis and cargo-bay objective text.
+- Repeated old terms and typo cleanup: `疣豬運兵車 -> 剃刀背運兵車`,
+  `新進者 -> 新兵`, `士官 -> 軍士`, `菁英 -> 精英`,
+  `網絡聯集 -> 網道樞紐`, `網絡傳送門 -> 網道傳送門`,
+  `特馬根 -> 槍蟲`, `賀馬根 -> 刀蟲`,
+  `蟲王護衛 -> 暴君守衛`, `滅絕者 -> 浩劫者/浩劫小隊`,
+  `亞薩利亞 -> 阿扎賴亞`, `普萊安 -> 普里阿姆`.
+- Encoding/punctuation cleanup: old `‧` name separator to `·`, duplicated
+  `的的`, `小隊小隊`, `進行進行`, `。。`, malformed `亞拉哈斯t-`,
+  and `卡尼菲克斯斯`.
+
+Build command completed successfully and rewrote both output UCS files:
+
+```text
+I:\translate_process\translation_project\output\dow2\Locale\TChinese\DOW2.ucs
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Verification at 14:00 JST: line counts remained stable, dow2 50695 and
+retribution 71720. `rg` scan against the expanded old-term list returned no
+hits. Encoding scan found U+FFFD 0 and WAAAGH? 0 in both outputs; the only
+`??` matches are the known original placeholder rows.
 
 ### 2026-05-17 13:13-13:28 JST
 
