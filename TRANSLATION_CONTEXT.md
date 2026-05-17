@@ -941,6 +941,39 @@ from the latest override table. Automation instructions were updated to forbid
 the minimum duration. The duration requirement now means active translation,
 validation, audit, and cleanup work only.
 
+### 2026-05-17 18:01-18:31 JST
+
+Main-chat translation pass continued with active translation work only. The
+pass edited `scripts/ucs_pipeline.py` and rebuilt both UCS outputs repeatedly
+with `ucs_pipeline.py --process-root I:\translate_process build --game all
+--fill-missing english`.
+
+Scope covered in this pass:
+
+- Mainland terminology cleanup for UI/system text: `計劃`, `賬號`, `視頻`,
+  `全局`, `窗口`, `服務器`, `在線`, `多人聯機`, `個人資料`, `文件`,
+  `硬件`, `顯存`, `紋理`, `作弊`, `自定義`, and targeted `質量` settings.
+- Warp/Eldar/DOW2 cleanup: `亞空間`, `躍遷蜘蛛`, `聚焦亞空間爆破`,
+  `亞空間之火`, `群體亞空間傳送`, and better DOW2 artillery/Warp text.
+- Ork and Tyranid cleanup: `WAAAGH` kept untranslated; `砍砍小子`,
+  `槍槍小子`, `大槍小子`, `鐵皮蝦米`, `劊子獸`, `蟲巢暴君`,
+  `泰倫蟲族正在行動`.
+- Chaos/lore cleanup: `黑暗諸神`, `黑暗科技時代`, `黑暗聖戰`,
+  `黑暗靈族`, `暗鴉守衛`, `黑色圖書館`, `懷言者軍團`,
+  `吞世者`, `放血鬼`, `黑暗傳送門`, `黑暗光環`.
+- DOW2/Retribution residual-English cleanup: added large all-game English
+  phrase mappings for Space Marine/Tarkus tactical barks, capture/order barks,
+  base warning lines, victory/defeat lines, reinforcements, and wargear
+  equipment prompts around IDs 9025573-9027406.
+- Fixed several visible bad lines: Ork Mek no longer `闇影者`, `白色烙印`
+  now `白色疤痕`, `圖爾連長` now `圖勒連長`, and the Thule toxin lines now
+  avoid `擊殺圖勒連長的毒素`.
+
+Rule notes preserved for future work: keep Traditional Chinese glyphs but use
+mainland 40K terminology; keep `WAAAGH` as `WAAAGH`; Razorback remains
+`剃刀背`; Bane Wolf remains `毒狼`; Bloodletter is now standardized as
+`放血鬼`.
+
 ### 2026-05-17 05:05 JST
 
 Workspace automation run started at 04:54 JST and was stopped early at user
