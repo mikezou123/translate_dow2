@@ -89,6 +89,8 @@ Cyrus = 賽勒斯
 Jonah Orion = 喬納·奧賴恩
 Thule = 圖勒
 Black Legion = 黑色軍團
+Abaddon = 阿巴頓
+Abaddon the Despoiler = 掠奪者阿巴頓
 Dark Gods = 黑暗諸神
 Blood for the Blood God = 血祭血神
 Skulls for the Skull Throne = 顱獻顱座
@@ -268,6 +270,16 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 Abaddon Dialogue Fix
+
+Main chat inspected Retribution dialogue and lore lines related to Abaddon.
+Confirmed a bad automatic replacement had turned `艾班頓` into `艾小隊頓` in
+current output. Added final replacements and manual override rows so Abaddon is
+consistently `阿巴頓`, `Abaddon the Despoiler` is `掠奪者阿巴頓`, and
+`Warmaster Abaddon` is `戰帥阿巴頓`. Rebuilt both UCS outputs successfully and
+verified Retribution output has no remaining `艾小隊頓`, `艾班頓`, or raw English
+`Abaddon` hits.
 
 ### 2026-05-17 14:19-14:38 JST
 
