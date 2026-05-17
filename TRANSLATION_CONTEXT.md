@@ -208,6 +208,7 @@ Scan for and replace these old or incorrect forms:
 世界末日號
 異形蟲王
 靈化腦蟲
+角蟲
 無畏機兵
 賽瑞斯
 沙歷士
@@ -223,6 +224,7 @@ Scan for and replace these old or incorrect forms:
 暗黑色軍團
 破曉之戰
 混沌再起
+蘭德掠襲者
 掠奪者坦克
 捕食者坦克
 塔克斯
