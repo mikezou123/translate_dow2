@@ -118,6 +118,7 @@ Kiwon = 基旺
 Tranthios III = 特蘭西奧斯三號
 Alpha Legion = 阿爾法軍團
 Razorback = 剃刀背運兵車
+Rhino = 犀牛運兵車
 Rippa-Splitta = 殘虐裂手
 Gorwazza = 戈瓦札
 Blitzzagga = 布利札嘎
@@ -270,6 +271,15 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-17 Razorback / Rhino Check
+
+Main chat inspected the Retribution transport lines after the user reported
+that the old `疣豬運兵車` icon now appears as `剃刀背運兵車`. The English source
+for those UI and tutorial strings is `Razorback`, so the old Traditional
+Chinese `疣豬` wording was incorrect. Confirmed current glossary direction:
+`Razorback = 剃刀背`, `Rhino = 犀牛運兵車`. Added a final replacement for the bad
+automation variant `剃刀鯨 -> 剃刀背` and rebuilt outputs.
 
 ### 2026-05-17 Abaddon Dialogue Fix
 
