@@ -1089,6 +1089,50 @@ mainland 40K terminology; keep `WAAAGH` as `WAAAGH`; Razorback remains
 `剃刀背`; Bane Wolf remains `毒狼`; Bloodletter is now standardized as
 `放血鬼`.
 
+### 2026-05-17 23:36 JST
+
+Main chat translation run started at 23:36:35 JST and continued until shortly
+after 00:12 JST on 2026-05-18, with final validation and commit/push still to
+follow. Scope was a long-tail consistency and quality pass across both DOW2 and
+Retribution outputs, implemented in `scripts/ucs_pipeline.py` and rebuilt with
+the standard `ucs_pipeline.py --process-root I:\translate_process build --game
+all --fill-missing english` command.
+
+Major fixes in this run:
+- UI/tutorial cleanup: camera panning, mouse selection, limited-use ability
+  counters, supply drops, wargear pickup, donated wargear, first poison point,
+  and Thule/Dreadnought recovery text.
+- Placeholder cleanup: all `Grenade Extra Text goes here` derivatives now
+  normalize to `手雷額外文字在此`.
+- Raven Guard lore cleanup: standardize Raven Guard as `鴉衛`, Kayvaan Shrike as
+  `凱萬·史萊克`, Squiggoth as `史奎格巨獸`, and clean several weapon lore
+  descriptions around Polyphemus, Bloodtide, Buckley Purgation, and Haugaard.
+- Chaos Rising/Kyras/Abaddon cleanup: retranslated obvious bad lines around
+  Great One/Kyras, Chapter Master and Chief Librarian text, Aurelia/Judgment of
+  Carrion references, Eliphas/Kyras ending text, and several Retribution chaos
+  campaign lines involving Abaddon, Kyras, Typhon, the Ordo Malleus, and
+  daemonhood.
+- Ultramarines and background lore cleanup: standardize `奧雷利亞`, `阿格斯`,
+  `基里曼`, `提古里烏斯`, `托里亞斯·泰利昂`, `阿斯提亞納克斯`,
+  `洛恩 V`, `瓦努斯牧師`, `技術軍士`, and related wargear/lore strings.
+- Purity terminology cleanup: `Purity Seal` is now `純潔印記` instead of
+  `貞潔封印` / `貞潔之契`; `Pure Trait` / purity system text now uses `純潔`.
+
+Rule additions for future work: keep `screen` as `螢幕` in Traditional Chinese
+UI text, not `屏幕`; use `純潔印記` for `Purity Seal`; use `鴉衛` for Raven
+Guard; use `技術軍士` for Techmarine; use `凱萬·史萊克` for Kayvaan Shrike;
+use `史奎格巨獸` for Squiggoth; use `奧雷利亞` for Aurelia and `阿格斯` for
+Argus.
+
+Validation during the run: both UCS outputs rebuilt successfully; line counts
+remained stable at dow2 50695 and retribution 71720. Encoding scan showed only
+the original `???` placeholder IDs 511755 and 607755 in both games. Old-term
+scan returned only a false positive where `嚎叫女妖最適合` contains the old
+substring `女妖最適合`; no actionable old-term hit remained from this run's
+target list. Same-as-English/ascii equality scan mostly reported placeholders,
+format strings, UI tokens, `Ping`, URLs, and other non-localized technical
+tokens.
+
 ### 2026-05-17 05:05 JST
 
 Workspace automation run started at 04:54 JST and was stopped early at user
