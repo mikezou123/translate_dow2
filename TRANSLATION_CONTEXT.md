@@ -148,16 +148,20 @@ Hormagaunt = 刀蟲
 Carnifex = 卡尼菲克斯
 Webway Assembly = 網道樞紐
 Webway portal = 網道傳送門
-Fire Prism = 火棱坦克
-Prism Cannon = 火棱炮
+Fire Prism = 火稜鏡坦克 / 火稜鏡
+Prism Cannon = 火稜鏡炮
 Craftworld = 方舟世界
 Soul Stone = 靈魂石
 Stikkbombz = 棒槌炸彈
 Slugga Boyz = 砍砍小子
-Deff Dread = 死無畏
+Wartrukk = 戰爭卡車
+Deff Dread = 死亡無畏
 Looted Tank = 掠奪坦克
-Ravener Alpha = 掘蟒蟲首領
-Lictor Alpha = 利卡特首領
+Ravener = 掘蟒
+Ravener Alpha = 掘蟒阿爾法
+Ripper = 撕裂蟲
+Zoanthrope = 靈能蟲
+Lictor Alpha = 利卡特阿爾法
 Synapse = 突觸
 Bio-toxin = 生物毒素
 Biomorph = 生體變異
@@ -167,10 +171,14 @@ Hive Fleet Kraken = 克拉肯蟲巢艦隊
 Tarsis Ultra = 塔西斯·奧特拉
 Ultramar = 奧特拉瑪
 T'au / Tau castes = 鈦族，火氏族，土氏族，水氏族，以太氏族
-Avatar of Khaine = 凱恩化身
+Exarch = 司戰
+Avatar of Khaine = 凱恩戰神分身
+Khaine = 凱恩
 Chaos Havocs = 混沌浩劫小隊
 Plague Champion = 疫病冠軍
 Aspiring Champion = 野心冠軍
+Bloodcrusher = 碾血者
+Araghast the Pillager = 掠奪者亞拉哈斯特
 Azariah Kyras = 阿扎賴亞·凱拉斯
 Priam = 普里阿姆
 Cyrene = 昔蘭尼
@@ -338,6 +346,43 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-19 00:24-01:04 JST
+
+Main chat Retribution-only translation pass started at 00:24:52 JST. Per user
+direction, DOW2 / Chaos Rising was not actively translated in this run. Edits
+were made in `scripts/ucs_pipeline.py` final replacement tables, and only the
+Retribution UCS was rebuilt with `--game retribution`.
+
+Major fixes in this run:
+- Ork cleanup: preserved `WAAAGH` as a faction concept, normalized
+  `Warboss = 戰爭頭目`, and cleaned Shoota Boyz, Kommando, Wartrukk, Looted
+  Tank, Deff Dread, and related vehicle/unit terms.
+- Eldar cleanup: fixed Khaine/Avatar/Exarch terms, including
+  `Avatar of Khaine = 凱恩戰神分身`, `Exarch = 司戰`, `Fire Prism =
+  火稜鏡`, `Ulthwé = 烏斯維`, `Biel-Tan = 貝爾坦`, `Young King = 幼王`,
+  and residual `蓋恩`/`神官` forms.
+- Tyranid cleanup: normalized `Ravener = 掘蟒`, `Ripper = 撕裂蟲`,
+  `Zoanthrope = 靈能蟲`, `Swarmlord = 蟲群之主`, and
+  `Lictor Alpha = 利卡特阿爾法`.
+- Chaos / Black Legion cleanup: fixed Bloodcrusher, gas grenade, plague lord
+  terms, checked Abaddon dialogue, and unified `Araghast the Pillager` as
+  `掠奪者亞拉哈斯特`.
+- Mainland-style UI/prose cleanup: kept `文件`, `在線`, `網絡`, `鼠標光標`,
+  `治療`, `附近`, `召喚`, and similar mainland phrasing in Traditional Chinese.
+- Context and glossary rules were synchronized for Exarch, Avatar of Khaine,
+  Fire Prism, Ravener, Zoanthrope, Deff Dread, Wartrukk, Bloodcrusher, and
+  Araghast.
+
+Validation during the run: Retribution UCS rebuilt successfully after each
+batch and retained the stable 71720 line count. Expanded old-problem scan
+returned 0 actionable hits for the tracked legacy terms and bad forms,
+including `渾沌`, `神靈族`, `歐克`, `電漿`, `飛彈`, `哇啊啊`,
+`Waaagh`, `蓋恩`, `神官擁有`, `吞噬蟲`, `死無畏`, `阿拉哈斯特`,
+and `亞拉加斯`. Same-as-English ASCII scan after ID 9000000 reported 110
+rows, all appearing to be variables, sound tags, hardware values, short UI
+tokens, copyright/legal text, Tau sept names, or intentional `WAAAGH` rather
+than normal untranslated prose.
 
 ### 2026-05-18 23:41-00:16 JST
 

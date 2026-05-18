@@ -14,6 +14,8 @@
 - Eldar：靈族。DoW II 时代文本不强制改成「艾達靈族」。
 - Imperial Guard / Astra Militarum：星界軍。不使用「帝國衛隊」「帝國防衛軍」。
 - Waaagh / WAAAGH：保留为 `WAAAGH`；独立战吼用 `WAAAGH！`，不要音译成「哇啊啊」。
+- Exarch：司戰，不用「聖者」「神官」。Avatar of Khaine：凱恩戰神分身。
+- Fire Prism：火稜鏡；Ravener：掘蟒；Zoanthrope：靈能蟲。
 - Daemonic Doppelganger：惡魔替身；普通 Doppelganger 语境用「替身」。
 - Dreadnought：無畏機甲，不用「無畏機兵」。
 - Chapter：戰團，不译「章節」。
