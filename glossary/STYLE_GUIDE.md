@@ -12,7 +12,10 @@
 - Space Marines：星際戰士，不用「太空陸戰隊」。
 - Orks：獸人，不用「歐克」。但具体单位需要按语境翻译，例如 Boyz 通常不直译为「蠻人」。
 - Eldar：靈族。DoW II 时代文本不强制改成「艾達靈族」。
-- Imperial Guard：帝國衛隊。除非原文明确为 Astra Militarum，否则不改「星界軍」。
+- Imperial Guard / Astra Militarum：星界軍。不使用「帝國衛隊」「帝國防衛軍」。
+- Waaagh / WAAAGH：保留为 `WAAAGH`；独立战吼用 `WAAAGH！`，不要音译成「哇啊啊」。
+- Daemonic Doppelganger：惡魔替身；普通 Doppelganger 语境用「替身」。
+- Dreadnought：無畏機甲，不用「無畏機兵」。
 - Chapter：戰團，不译「章節」。
 - Company：连队语境译「連隊」，不译「公司」。
 
@@ -31,4 +34,3 @@
 - 不改变数字 ID。
 - 不随意删除句末空格；部分旧游戏 UI 可能依赖空格排版。
 - UI 短文本优先短、准、可读，不追求长句文学化。
-

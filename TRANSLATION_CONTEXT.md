@@ -339,6 +339,50 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-18 23:41-00:16 JST
+
+Main chat Retribution-only translation pass started at 23:41:08 JST. Per user
+direction, DOW2 / Chaos Rising was not actively translated in this run. Edits
+were made in `scripts/ucs_pipeline.py` final replacement tables, and
+Retribution UCS was rebuilt after each small batch with `--game retribution`.
+
+Major fixes in this run:
+- Retribution Chaos/Ork/Last Stand tooltips: Warboss passive/unlock text,
+  Chaos Sorcerer / Subjugate / Doppelganger / Bloodletter abilities, corruption
+  global abilities, Tarkus/Avitus corrupted abilities, Khorne slogans, and
+  Tyrant Guard taunt descriptions.
+- Corrected several real mistranslations: the corruption revive-all-sergeants
+  global ability, remote explosive ally-sacrifice text, Daemonic Doppelganger
+  as `替身`, Warboss `Scallywags` as `叛變雜碎`, and multiple single-target /
+  controlled-singularity / psychic-dome descriptions.
+- Polished wargear and lore lines around Blood Ravens relics, Astral Claws,
+  Black Legion, Abaddon, Typhon / Judgment of Carrion background, skull/Khorne
+  wording (`血祭血神！顱獻顱座！`), and heavy-infantry descriptions.
+- Polished Eldar / Lord General / Tau / Last Stand ability text, including
+  Autarch / Swooping Hawk wings, shield and marker drones, flare, Holy Pyre,
+  D-Cannon singularity, and anti-armor missile descriptions.
+- Final cleanup after validation: normalized visible `Ability Unlock -` /
+  `解鎖技能 -` strings to `能力解鎖：`, changed residual hand-to-hand wording
+  to melee wording, aligned remaining Daemonic Doppelganger strings to
+  `惡魔替身` / `替身`, and fixed several small UI phrases around upgrade unlocks,
+  minion traits, `黑暗靈能`, and `30 秒`.
+- Rule files were synchronized with current user-approved terminology:
+  `glossary/STYLE_GUIDE.md` and `glossary/mainland_40k_tw.tsv` now explicitly
+  prefer `星界軍`, `無畏機甲`, `戰爭頭目`, `WAAAGH`, and
+  `Daemonic Doppelganger = 惡魔替身`.
+
+Validation during the run: Retribution output rebuilt successfully and retained
+the stable 71720 line count. Expanded old-problem scan returned 0 hits for the
+tracked legacy terms and bad forms including `渾沌`, `神靈族`, `歐克`, `電漿`,
+`飛彈`, `哇啊`, `嘲弄`, `飯桶`, `兇靈`, `Ability Unlock`, `Doppelganger`,
+`惡魔分身`, `黑暗魔法`, and `卅秒`. Encoding scan found no U+FFFD, no
+`WAAAGH?`, no lowercase `Waaagh`, no generic `哇啊啊`, and only the two
+original `???` placeholder rows at IDs 511755 and 607755. Remaining
+same-as-English ASCII rows after ID 9000000 counted 99 and are placeholders,
+sound tags, legal text, chat commands, URLs, Tau sept names, or WAAAGH rather
+than normal visible prose. DOW2 / Chaos Rising output was not rebuilt or
+actively translated in this run.
+
 ### 2026-05-18 00:44-01:03 JST
 
 Main chat 20-minute translation pass started at 00:44:32 JST and continued in

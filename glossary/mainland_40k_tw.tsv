@@ -34,11 +34,13 @@ Genestealer	基因竊取者	基因偷取者
 Termagant	槍蟲	泰馬蟲	
 Hormagaunt	刀蟲	荷瑪岡特	
 Ripper	撕裂蟲	裂殖蟲	
-Waaagh!	Waaagh!	哇啊啊!	兽人战吼一般保留
+Waaagh!	WAAAGH	哇啊啊!;哇啊啊;哇啊	兽人战吼保留，独立感叹用 WAAAGH！
 Mekboy	技霸	技工小子	
-Warboss	戰爭老大	戰鬥老大	
+Warboss	戰爭頭目	戰鬥老大;戰爭老大	獸人指揮官
 Nob	老大	貴族	兽人 Nob
-Dreadnought	無畏機兵	無畏者	星际战士载具
+Dreadnought	無畏機甲	無畏者;無畏機兵	星际战士载具
+Daemonic Doppelganger	惡魔替身	惡魔分身;惡魔幽靈	混沌巫師召喚物
+Doppelganger	替身	分身	按语境避免误改戰神分身
 Terminator	終結者	終結兵	
 Scout	偵察兵	斥候;偵查兵;偵查者;星際戰士哨兵	
 Scout Marine	星際戰士偵察兵	星際戰士哨兵	
