@@ -370,6 +370,10 @@ Major fixes in this run:
   `glossary/STYLE_GUIDE.md` and `glossary/mainland_40k_tw.tsv` now explicitly
   prefer `星界軍`, `無畏機甲`, `戰爭頭目`, `WAAAGH`, and
   `Daemonic Doppelganger = 惡魔替身`.
+- Post-push sweep corrected several Retribution corruption/redemption score
+  notices, including restoring the `%1REDEMPTION%` variable for redemption rows
+  and rewriting `from wargear / for not deploying / expiring` labels into
+  readable Traditional Chinese.
 
 Validation during the run: Retribution output rebuilt successfully and retained
 the stable 71720 line count. Expanded old-problem scan returned 0 hits for the

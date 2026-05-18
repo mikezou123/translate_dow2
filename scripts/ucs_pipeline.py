@@ -9626,6 +9626,18 @@ FINAL_ID_REPLACEMENTS = {
     ("retribution", "9101780"): "圖勒通話結束。",
     ("dow2", "9109614"): "利維坦 - 塔西斯觸鬚",
     ("retribution", "9109614"): "利維坦 - 塔西斯觸鬚",
+    ("retribution", "9130180"): "+%1CORRUPTION% 來自戰爭裝備",
+    ("retribution", "9130181"): "+%1CORRUPTION% 來自指揮官",
+    ("retribution", "9130182"): "+%1CORRUPTION% 因未部署",
+    ("retribution", "9130391"): "+%1CORRUPTION% 腐化",
+    ("retribution", "9130392"): "+%1REDEMPTION% 救贖",
+    ("retribution", "9130432"): "+%1CORRUPTION% 因「勒吉斯起義」逾時",
+    ("retribution", "9130433"): "+%1CORRUPTION% 因「太空遺跡」逾時",
+    ("retribution", "9130434"): "+%1CORRUPTION% 因「血手」逾時",
+    ("retribution", "9130435"): "+%1CORRUPTION% 因「首都防禦」逾時",
+    ("retribution", "9131017"): "+%1CORRUPTION% 腐化",
+    ("retribution", "9131018"): "+%1REDEMPTION% 救贖",
+    ("retribution", "9132451"): "+%1CORRUPTION% 因「往昔之鑰」逾時",
 }
 
 
