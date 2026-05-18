@@ -15,6 +15,10 @@ The output must remain Traditional Chinese because the Steam language option is
 TChinese, but the terminology and style should follow mainland Chinese
 Warhammer 40,000 usage.
 
+Current user direction as of 2026-05-18: DOW2 / Chaos Rising has been cleared
+in-game, so do not actively spend translation passes on DOW2 unless the user
+explicitly asks. Continue active translation and QA on Retribution.
+
 Primary working file:
 
 ```text
@@ -135,6 +139,7 @@ Astronomic Array = 天文陣列
 Techpriest = 技術神甫
 Mek / Mekboy = 技霸 / 技霸小子
 Big Mek = 大技霸
+Dakka = 噠咔
 Artificer Power Armor = 精工動力甲
 Scout = 偵察兵
 Tyrant Guard = 暴君守衛
@@ -1211,6 +1216,29 @@ substring `女妖最適合`; no actionable old-term hit remained from this run's
 target list. Same-as-English/ascii equality scan mostly reported placeholders,
 format strings, UI tokens, `Ping`, URLs, and other non-localized technical
 tokens.
+
+### 2026-05-18 22:56-23:36 JST
+
+Main-chat pass switched to Retribution-only active translation after user
+confirmed DOW2 / Chaos Rising had been cleared in-game. DOW2 should no longer be
+actively targeted unless the user asks. The pass edited
+`scripts/ucs_pipeline.py`, rebuilt Retribution only, and wrote the generated UCS
+to `I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs`.
+
+Scope covered: Last Stand ability and unlock descriptions, Lord General /
+Ogryn / Commissar Lord Bernn text, Ork Spookums / Lootas / Kommandos / More
+Dakka wording, Tyranid Hive Lord and Zoanthrope-adjacent cleanup, Tau drone and
+Crisis battlesuit lines, Steam / lobby UI wording, Kayleth draw-fire fixes,
+Noise Marine / Blastmaster wording, Warp Spider cleanup, and several awkward
+Chaos Rising / Ork wargear descriptions still visible in Retribution output.
+Rule updates: `Dakka = 噠咔`; keep future active passes focused on Retribution.
+
+Validation after rebuild: Retribution output remained 71720 lines. Expanded
+old-problem scan returned 0 hits, including `神靈族`, `渾沌`, `歐克`,
+`毆克`, `太空陸戰隊`, `電漿`, `飛彈`, `哇啊`, `傳送蜘蛛`,
+`發出火焰`, `放血鬼鬼王`, `搭嘎嘎`, `覆覆`, and related typo patterns.
+Encoding scan found no U+FFFD, no `WAAAGH?`, no lowercase `Waaagh`, and only the
+two original `???` placeholder rows at IDs 511755 and 607755.
 
 ### 2026-05-17 05:05 JST
 
