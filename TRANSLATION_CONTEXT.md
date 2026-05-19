@@ -142,6 +142,7 @@ Big Mek = 大技霸
 Dakka = 噠咔
 Artificer Power Armor = 精工動力甲
 Scout = 偵察兵
+Sentinel = 哨衛機甲
 Tyrant Guard = 暴君守衛
 Termagant = 槍蟲
 Hormagaunt = 刀蟲
@@ -154,6 +155,10 @@ Craftworld = 方舟世界
 Soul Stone = 靈魂石
 Stikkbombz = 棒槌炸彈
 Slugga Boyz = 砍砍小子
+Shoota Boyz = 槍小子
+Kommando = 特戰小子
+Kommando Nob = 特戰老大
+Nob Leader = 老大頭目
 Wartrukk = 戰爭卡車
 Deff Dread = 死亡無畏
 Looted Tank = 掠奪坦克
@@ -174,11 +179,15 @@ T'au / Tau castes = 鈦族，火氏族，土氏族，水氏族，以太氏族
 Exarch = 司戰
 Avatar of Khaine = 凱恩戰神分身
 Khaine = 凱恩
+Wraithguard = 幽冥衛士
 Chaos Havocs = 混沌浩劫小隊
 Plague Champion = 疫病冠軍
 Aspiring Champion = 野心冠軍
 Bloodcrusher = 碾血者
 Araghast the Pillager = 掠奪者亞拉哈斯特
+Ulkair = 烏凱爾
+Selenon = 塞勒農
+The Ice Works = 冰工廠
 Azariah Kyras = 阿扎賴亞·凱拉斯
 Priam = 普里阿姆
 Cyrene = 昔蘭尼
@@ -189,6 +198,8 @@ Judgment of Carrion = 腐屍審判號
 Teleportarium = 傳送室
 Capillary Tower = 毛細塔
 biomass = 生物質
+Pheromone = 信息素
+Mycetic Spore / Spore Drop = 菌囊孢子
 psychic power / spell = 靈能力；混沌巫術語境可用咒法/亞空間巫術
 Swarmlord = 蟲群之主
 Servitor = 機僕（機械教/星際戰士構造體語境）；Retinue/entourage 不要誤改為機僕
@@ -346,6 +357,38 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-19 23:25-00:05 JST
+
+Main chat Retribution-only translation pass started at 23:25:21 JST. Per user
+direction, DOW2 / Chaos Rising was not actively translated in this run. Edits
+were made in `scripts/ucs_pipeline.py` final replacement tables and ID-level
+overrides, and only the Retribution UCS was rebuilt with `--game retribution`.
+
+Major fixes in this run:
+- Ork cleanup: normalized Nob Leader as `老大頭目`, Kommando as `特戰小子`,
+  Kommando Nob as `特戰老大`, Shoota/Slugga loading-tip language, Big Shoota
+  / Dakka text, and Storm Trooper false positives caused by `突擊隊` cleanup.
+- Imperial / Space Marine cleanup: unified Sentinel as `哨衛機甲`, cleaned
+  Guardsman residual forms to `星界軍士兵`, fixed Assault Terminators as
+  `突擊終結者`, and kept `Scout = 偵察兵` in UI/loading tips.
+- Eldar cleanup: unified Wraithguard as `幽冥衛士`, Warlock as `術士`,
+  Mind War as `靈能戰`, Last Stand UI as `最後一戰`, and residual Exarch
+  mistranslations from `主教` / `軍神` to `司戰`.
+- Tyranid cleanup: unified `Tyranid Warrior = 泰倫武士`, `Hive Fleet =
+  蟲巢艦隊`, `Pheromone = 信息素`, `Mycetic Spore = 菌囊孢子`, and
+  Hormagaunt / Termagant loading-tip text as `刀蟲` / `槍蟲`.
+- Chaos / campaign cleanup: normalized `Eliphas = 艾里法斯`,
+  `Ulkair = 烏凱爾`, `Selenon = 塞勒農`, and `The Ice Works = 冰工廠`.
+- Mainland-style UI/prose cleanup: corrected `最後戰役`, `高手信息`,
+  `補給在線`, `戰在線`, and several awkward Last Stand attribute-scaling
+  descriptions.
+
+Validation during the run: Retribution UCS rebuilt successfully after each
+batch and retained the stable 71720 line count. Targeted scans after each batch
+returned 0 hits for the newly fixed bad forms, including `最後戰役`,
+`心靈戰`, `艾達靈族`, `衝鋒槍小子`, `特馬根`, `賀馬根`,
+`女妖主教`, `嚎叫女妖軍神`, `費洛蒙`, and `孢囊孢子`.
 
 ### 2026-05-19 00:24-01:04 JST
 
