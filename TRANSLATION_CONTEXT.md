@@ -358,6 +358,42 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-21 00:37-01:08 JST
+
+Main chat Retribution-only translation pass. Per user direction, DOW2 / Chaos
+Rising was not actively targeted. Edits were made in `scripts/ucs_pipeline.py`
+and Retribution output was rebuilt repeatedly with `--game retribution`.
+
+Scope covered:
+- Last Stand / Retribution UI and unit text: Intel role text, Lord General /
+  Ogryn / Storm Trooper wording, Bloodletter Warp Shift duplicates, Tau drone
+  and Crisis battlesuit wording, and role/order descriptions.
+- Chaos terminology cleanup: `混沌神殿` -> `混沌神龕`, `瘟疫之神` -> `納垢`,
+  `瘟疫戰士` -> `瘟疫星際戰士`, `Bloodcrusher` -> `碾血者`, and
+  Tzeentch shrine / bolt wording.
+- Ork cleanup: `Nob Leader` is now normalized as `老大`, `Stormboyz` as
+  `風暴小子`, `Lootas` as `掠奪小子`, and Mekboy / Wartrukk / Brightlance
+  support text was polished.
+- Equipment and lore cleanup: `Brightlance` -> `光矛`, `D-cannon` -> `D-炮`,
+  `Lord General` -> `星界軍將軍`, `Neroth` -> `奈若斯`, `Meridian` ->
+  `梅里迪安`, and several Abaddon / Kyras / Eliphas lines were smoothed.
+- Mechanical cleanup after `近身` -> `近戰`: fixed generated duplicates such
+  as `近戰戰武器`, `近戰戰打擊`, `近戰戰中`, and `近戰戰防護`.
+
+Rule additions for future work: keep active passes focused on Retribution unless
+the user asks for DOW2 again; use `混沌神龕` for Chaos Shrine/Temple upgrade UI,
+`老大` for Nob Leader, `星界軍將軍` for Lord General, `光矛` for Brightlance,
+`D-炮` for D-cannon, `奈若斯` for Neroth, and `梅里迪安` for Meridian.
+
+Validation after the final rebuild: Retribution output remained 71720 lines.
+Expanded old-problem scan returned 0 hits, including legacy terms and this
+run's new cleanup targets (`混沌神殿`, `瘟疫之神`, `老大頭目`, `光束長槍`,
+`D 型炮`, `內羅斯`, `泰論`, `帝國將軍`, and generated `近戰戰...`
+duplicates). Encoding scan found no U+FFFD, no `WAAAGH?`, and only the two
+known original `???` placeholder rows at IDs 511755 and 607755. Same-as-English
+ASCII equality count remained 134, consisting of UI tokens, commands, URLs,
+copyright/legal text, Tau sept names, and similar technical strings.
+
 ### 2026-05-19 23:25-00:05 JST
 
 Main chat Retribution-only translation pass started at 23:25:21 JST. Per user
