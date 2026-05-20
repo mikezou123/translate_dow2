@@ -358,6 +358,59 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-21 02:09-02:49 JST
+
+Main-chat Retribution-only translation and QA pass. Per user direction, DOW2 /
+Chaos Rising was not actively translated in this run. Edits were made in
+`scripts/ucs_pipeline.py`, and only the Retribution UCS was rebuilt with
+`--game retribution`.
+
+Scope covered:
+- UI/system cleanup for residual English and placeholder-like strings: no-key
+  text, command/help strings, Steam/authentication messages, CPU/GPU graphics
+  requirement text, Direct2Drive/Steam store labels, and camera/control tips.
+- Ork terminology cleanup: Wartrukk = `戰爭卡車`, Battlewagon = `戰鬥貨車`,
+  Shoota = `突突槍`, Big Shoota = `重型突突槍`, Twin-linked Shoota =
+  `雙聯突突槍`, Kustom Shoota = `特製突突槍`, Loota = `劫掠小子`, and Dakka
+  Deffgun = `噠咔死槍`.
+- Eldar / Tau / Necron cleanup: Autarch = `大司戰`, Brightlance = `光矛`,
+  Shuriken Catapult = `星鏢彈射器`, Fire Warrior Squad = `火戰士小隊`, Greater
+  Good = `上上善道`, XV8 Crisis Battlesuit = `XV8 危機戰鬥服`, XV88 Broadside
+  Battle Suit = `XV88 寬舷戰鬥服`, Shas'O = `沙斯'O`, and Monolith = `方尖碑`.
+- Tyranid / Imperial / Space Marine cleanup: Carnifex = `卡尼菲克斯`,
+  Carnifex Alpha = `卡尼菲克斯首領`, Hormagaunt = `刀蟲`, Termagant = `槍蟲`,
+  Mycetic Spore = `菌囊孢子`, Barbed Strangler = `倒刺絞殺炮`, Storm Trooper =
+  `暴風突擊隊`, Assault Marine = `突擊星際戰士`, Tactical Marine =
+  `戰術星際戰士`, and Force Commander = `指揮官`.
+- Vehicle/Chaos cleanup: Land Raider = `蘭德掠襲者`, Land Raider Redeemer =
+  `蘭德掠襲者救贖者`, Basilisk = `蛇怪自行火炮`, Basilisk Creeping Barrage =
+  `蛇怪徐進彈幕`, Demolisher Cannon = `拆毀者炮`, Chaos Sorcerer =
+  `混沌巫師`, Plague Champion = `瘟疫冠軍`, and Warmaster = `戰帥`.
+- Lore equipment cleanup: restored key proper nouns in long descriptions,
+  including Aquila Ignis as `烈焰天鷹`, Goge Vandire as `戈吉·范迪爾`,
+  Strike Cruiser Retribution as `打擊巡洋艦「懲戒」`, and Legion of the Damned
+  as `受詛軍團`.
+- Traitor legion cleanup: fixed standalone `Death Guard` to `死亡守衛` by exact
+  ID so it does not collide with `Deathwatch = 死亡守望`.
+- Champion cleanup: normalized old `武聖` forms to `冠軍`, including Chaos,
+  Eldar, Khorne, Tzeentch, Night Lords, and Plague Marine Champion contexts.
+  `Plague Marine`-related visible names now use `瘟疫星際戰士` rather than
+  old `疫病戰士`.
+
+Rule additions for future work: keep WAAAGH untranslated as `WAAAGH`; do not
+revert `Razorback = 剃刀背運兵車`; use `卡尼菲克斯首領` rather than
+`卡尼菲克斯阿爾法`; use `戰帥阿巴頓` for `Warmaster Abaddon`; avoid old
+forms such as `風暴兵`, `亮矛`, `掠奪小子`, `劊子獸`, `賀瑪岡特`,
+`特瑪岡特`, `石化蜥蜴`, `混沌術士`, and `疫病冠軍`.
+
+Validation after the final rebuild: Retribution output remained 71720 lines.
+Expanded old-problem scan returned 0 hits for the current legacy term list,
+including `神靈族`, `渾沌`, `歐克`, `毆克`, `太空陸戰隊`, `帝國衛隊`,
+`電漿`, `飛彈`, `暗黑色軍團`, `哇啊啊`, `亮矛`, `星際突擊兵`, `掠奪小子`,
+`風暴兵`, `劊子獸`, `賀瑪岡特`, `特瑪岡特`, and `菌絲孢子`. Same-as-English
+ASCII equality candidates were down to technical placeholders, commands, URLs,
+copyright/legal strings, Tau sept names, and internal UI tokens.
+
 ### 2026-05-21 01:29-02:09 JST
 
 Main-chat Retribution-only pass. DOW2 / Chaos Rising was not actively targeted
