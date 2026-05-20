@@ -358,6 +358,41 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-21 01:09-01:27 JST
+
+Main chat Retribution-only translation and QA pass. Per user direction, DOW2 /
+Chaos Rising was not actively targeted. Edits were made in
+`scripts/ucs_pipeline.py`, and Retribution output was rebuilt repeatedly with
+`--game retribution`.
+
+Scope covered:
+- Last Stand Tau / Necron / Ork hero tooltip polish: Crisis battlesuit jump and
+  shield wording, markerlight / Sky Ray / seeker missile text, Overlord
+  Staff of Light / Warscythe / Cryptek / C'tan lore, and WAAAGH / Boss Aura
+  passive descriptions.
+- Imperial Guard / Lord General cleanup: Guardsmen names normalized to
+  `星界軍士兵`, Vox Caster to `通訊員`, Vanquisher turret/tank to `殲滅者`,
+  Executioner to `處刑者`, Tarantula Turret to `狼蛛炮塔`, and Storm Trooper /
+  Ogryn support text polished.
+- Ability wording cleanup: `單個目標` -> `單一目標`, `受到更多傷害` ->
+  `受到更高傷害`, `常時啟用` -> `常駐生效`, and several direct-translation
+  phrases around knockback, stun, aura, and range-damage effects were smoothed.
+- Known Razorback wording remains `剃刀背運兵車`; do not change it back to
+  `疣豬` / `豪豬` unless the user explicitly chooses a different convention.
+
+Rule additions for future work: use `殲滅者` for Vanquisher, `處刑者` for
+Executioner, `狼蛛炮塔` for Tarantula Turret, `墓穴技師` for Cryptek,
+`光杖` for Staff of Light, `戰鐮` for Warscythe, `星神` for C'tan,
+`太空死靈` for Necron, and `懼亡者` for Necrontyr. Keep active passes focused
+on Retribution unless the user asks for DOW2 again.
+
+Validation during this run: Retribution output rebuilt successfully and remained
+71720 lines. Legacy old-problem scan returned 0 hits for the current expanded
+term list. Encoding scan found no U+FFFD and only the two known original `???`
+placeholder rows at IDs 511755 and 607755. Same-as-English ASCII equality count
+remained 134, consisting of legal/copyright strings, commands, internal codes,
+Tau sept names, and other technical strings.
+
 ### 2026-05-21 00:37-01:08 JST
 
 Main chat Retribution-only translation pass. Per user direction, DOW2 / Chaos
