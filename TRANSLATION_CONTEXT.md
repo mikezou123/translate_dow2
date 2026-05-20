@@ -358,6 +358,40 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-21 01:29-02:09 JST
+
+Main-chat Retribution-only pass. DOW2 / Chaos Rising was not actively targeted
+because the user has already cleared DOW2 in-game. The pass edited
+`scripts/ucs_pipeline.py`, rebuilt Retribution output only, and wrote:
+
+```text
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Scope covered: Chaos Shrine / Predator tutorial consistency, Demolisher Cannon,
+Abaddon / Dark Gods / Khorne / Slaanesh lines, shortened Last Stand and wargear
+lore descriptions, Tyranid / Eldar / Imperial Guard wargear descriptions,
+Kyras / Diomedes / Galan ending text, Thousand Sons / Ahriman references, force
+staff terminology, Doombolt terminology, Ork Kommando / Nob / Big Shoota text,
+Ranger Long Rifle, Deathspinner, Venom Cannon, Exarch upgrades, and several
+obvious old-TChinese omissions where long English descriptions had been reduced
+to short summaries.
+
+Rule additions for future work: use `混沌神龕` for Chaos Shrine but keep
+`混沌聖殿` for Chaos Temple; use `掠食者殲滅者` for Predator Annihilator and
+`掠食者毀滅者` for Predator Destructor; use `拆毀者炮` for Demolisher Cannon;
+use `力場法杖` for Force Staff; use `末日閃電` for Doombolt; use `千子` for
+Thousand Sons and `阿里曼` for Ahriman. Preserve `WAAAGH` rather than translating
+it phonetically.
+
+Validation during the run: Retribution UCS rebuilt successfully after each
+batch. Stable line count remained 71720. Old-problem scan returned 0 hits for
+the expanded target list, including Thousand Sons / force staff / Doombolt
+cleanup terms. Residual same-as-English/ascii equality scan stayed at 134 and
+consisted of placeholders, UI tokens, URLs, copyright/legal text, Tau sept names,
+and command strings. Encoding scan found no U+FFFD and only the known original
+`??` placeholder IDs 511755 and 607755.
+
 ### 2026-05-21 01:09-01:27 JST
 
 Main chat Retribution-only translation and QA pass. Per user direction, DOW2 /
