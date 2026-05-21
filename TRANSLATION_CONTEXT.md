@@ -358,6 +358,38 @@ Treat these as reference counts. If they change, explain why in the run log.
 
 ## Run Log
 
+### 2026-05-22 00:26-00:40 JST
+
+Main-chat resumed Retribution-only translation and QA pass. DOW2 / Chaos Rising
+was not actively targeted because the user has already cleared DOW2 in-game.
+The pass continued the interrupted main-chat workflow, edited
+`scripts/ucs_pipeline.py`, and rebuilt only:
+
+```text
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Scope covered:
+- Grenade and missile terminology cleanup: `穿甲導彈` -> `破甲導彈`,
+  `盲光手雷` / `致盲榴彈` -> `致盲手雷`, `煙霧榴彈` -> `煙霧手雷`,
+  and `震撼彈` -> `震撼手雷`.
+- Equipment cleanup: `衝鋒炮` -> `突擊炮`, `機炮` / `自動加農炮` ->
+  `自動炮`, `等級鍊劍` -> `等級鏈鋸劍`, Flamer descriptions now explicitly
+  use `火焰噴射器`, and Executioner unit/name rows use `處刑者`.
+- Ork cleanup: `Shoota Boyz` visible names now use `突突小子`, `Stormboyz`
+  use `風暴小子`, Gretchin/Grot contexts use `屁精`, and Snotling contexts were
+  kept distinct as `鼻涕精`.
+- Space Marine veteran cleanup: Sternguard visible names were unified to
+  `堅衛老兵`.
+
+Validation: Retribution output rebuilt successfully and remained 71720 lines.
+Encoding scan found no U+FFFD. Expanded old/recent-problem scan returned 0 hits
+for the current target list, including the newly cleaned missile, grenade,
+Autocannon, Assault Cannon, Sternguard, Shoota Boyz, and duplicate-Flamer
+patterns. Same-as-English non-placeholder candidates were limited to technical
+tokens, UI IDs, URLs, Ping strings, version/clock values, and similar internal
+strings.
+
 ### 2026-05-21 02:09-02:49 JST
 
 Main-chat Retribution-only translation and QA pass. Per user direction, DOW2 /
