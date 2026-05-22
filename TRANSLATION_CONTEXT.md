@@ -100,11 +100,13 @@ Abaddon the Despoiler = 掠奪者阿巴頓
 Dark Gods = 黑暗諸神
 Blood for the Blood God = 血祭血神
 Skulls for the Skull Throne = 顱獻顱座
-Warp Spider = 躍遷蜘蛛
+Warp Spider = 躍遷蛛
 Howling Banshee = 嚎叫女妖
 missile launcher = 導彈發射器
 lascannon = 激光炮
 plasma cannon = 等離子炮
+Fusion Gun = 熱熔槍
+Fusion Blaster = 熱熔爆破槍
 power armour = 動力裝甲
 Thaddeus = 撒迪厄斯
 Kronus = 克羅努斯
@@ -126,8 +128,8 @@ Alpha Legion = 阿爾法軍團
 Razorback = 剃刀背運兵車
 Rhino = 犀牛運兵車
 Predator = 掠食者 / 掠食者坦克
-Land Raider = 蘭德襲擊者
-Warhammer 40,000: Dawn of War II = 戰鎚 40,000：戰爭黎明 II
+Land Raider = 蘭德掠襲者
+Warhammer 40,000: Dawn of War II = 戰錘 40,000：戰爭黎明 II
 Chaos Rising = 混沌崛起
 Retribution = 懲罰
 Rippa-Splitta = 殘虐裂手
@@ -179,9 +181,10 @@ T'au / Tau castes = 鈦族，火氏族，土氏族，水氏族，以太氏族
 Exarch = 司戰
 Avatar of Khaine = 凱恩戰神分身
 Khaine = 凱恩
-Wraithguard = 幽冥衛士
+Wraithguard = 幽冥守衛
 Chaos Havocs = 混沌浩劫小隊
-Plague Champion = 疫病冠軍
+Plague Champion = 瘟疫冠軍
+Blastmaster = 爆裂大師
 Aspiring Champion = 野心冠軍
 Bloodcrusher = 碾血者
 Araghast the Pillager = 掠奪者亞拉哈斯特
@@ -357,6 +360,45 @@ Treat these as reference counts. If they change, explain why in the run log.
   runs do not depend on restoring this chat thread.
 
 ## Run Log
+
+### 2026-05-22 22:45-23:25 JST
+
+Main-chat Retribution-only terminology and QA pass. DOW2 / Chaos Rising was not
+actively targeted because the user has already cleared DOW2 in-game. The pass
+edited `scripts/ucs_pipeline.py`, refreshed current terminology rules in this
+context file, and rebuilt only:
+
+```text
+I:\translate_process\translation_project\output\retribution\Locale\TChinese\DOW2.ucs
+```
+
+Scope covered:
+- Space Marine and vehicle cleanup: `Drop Pod = 空降艙`,
+  `Tactical Dreadnought Armor = 終結者裝甲`, `Assault Squad =
+  突擊星際戰士小隊`, `Iron Halo = 鋼鐵光環`, `Rosarius = 玫瑰念珠`,
+  `Auspex = 鳥卜儀`, `Teleportarium = 傳送室`, `Rhino = 犀牛運兵車`,
+  and `Land Raider = 蘭德掠襲者`.
+- Eldar/Tyranid cleanup: `Warp Spider = 躍遷蛛`, `Wraithbone = 靈骨`,
+  `Wraithguard = 幽冥守衛`, `Tyranid Warrior = 泰倫武士`,
+  `Venom Brood = 毒液孵群`, `Fusion Gun = 熱熔槍`,
+  `Fusion Blaster = 熱熔爆破槍`, and `Phoenix Lord Feugan =
+  鳳凰領主弗甘`.
+- Ork/Chaos/Guard cleanup: `Kommando Nob = 特戰老大`, Deffgun names use
+  `噠咔死槍` / `光束死槍`, `Looted Tank = 掠奪坦克`, `Blastmaster =
+  爆裂大師`, `Cadian = 卡迪安`, `Kasrkin = 卡斯金`, `Heavy Weapons Team =
+  重型武器小隊`, `Vox Operator = 通訊兵`, and several Thaddeus/Eliphas/Tharp
+  name consistency fixes.
+- Mainland-style UI wording cleanup: `戰鎚` -> `戰錘`, video/audio wording
+  normalized to `視頻` / `音頻`, and xenos wording normalized from `異形` to
+  `異族` where appropriate.
+
+Validation: Retribution output rebuilt successfully and remained 71720 lines.
+Encoding scan found no U+FFFD. Expanded old/recent-problem scan returned 0 hits
+for the current target list. `???` appears only in the original English/TChinese
+placeholder rows 511755 and 607755. Same-as-English ASCII rows were limited to
+variables, UI tokens, Ping strings, URLs, version/clock values, copyright/system
+text, and similar technical placeholders. `git diff --check` reported no
+whitespace errors.
 
 ### 2026-05-22 00:26-00:40 JST
 
